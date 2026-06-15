@@ -1,0 +1,2909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms and Conditions — Themegatrader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:             #0B0F19;
+      --surface:        #111827;
+      --surface-2:      #1A2235;
+      --border:         #1F2D44;
+      --accent:         #2563EB;
+      --accent-dim:     rgba(37,99,235,0.12);
+      --accent-glow:    rgba(37,99,235,0.25);
+      --text-primary:   #F0F4FF;
+      --text-secondary: #8B9DC3;
+      --text-muted:     #4B5E82;
+      --green:          #10B981;
+      --radius:         10px;
+      --radius-lg:      16px;
+      --font-display:   'Syne', sans-serif;
+      --font-body:      'Inter', sans-serif;
+      --sidebar-w:      268px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── Layout ── */
+    .layout { display: flex; min-height: 100vh; }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      overflow-y: auto;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+    .sb-brand {
+      padding: 28px 24px 22px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sb-brand .wordmark {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .sb-brand .doc-type {
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+    .sb-nav { padding: 14px 10px; flex: 1; }
+    .sb-nav a {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      line-height: 1.45;
+      transition: background 0.14s, color 0.14s;
+    }
+    .sb-nav a:hover, .sb-nav a.active {
+      background: var(--accent-dim);
+      color: var(--text-primary);
+    }
+    .sb-nav a .n {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      min-width: 18px;
+      letter-spacing: 0.04em;
+    }
+    .sb-footer {
+      padding: 18px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Main ── */
+    .main {
+      flex: 1;
+      min-width: 0;
+      padding: 60px 56px 100px 56px;
+      max-width: 960px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      margin-bottom: 56px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -60px -56px 0 -56px;
+      background: radial-gradient(ellipse 55% 280px at 25% 0%, var(--accent-glow), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: blink 2.5s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.35; transform:scale(0.65); }
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.6vw, 42px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 22px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 20px;
+    }
+    .hero-meta-item .lbl {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+    }
+    .hero-meta-item .val {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* ── Acceptance notice ── */
+    .notice {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      border: 1px solid var(--accent);
+      background: var(--accent-dim);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 52px;
+    }
+    .notice svg { flex-shrink:0; width:18px; height:18px; color:var(--accent); margin-top:2px; }
+    .notice p { font-size:13.5px; color:var(--text-secondary); line-height:1.7; margin:0; }
+    .notice p strong { color:var(--text-primary); font-weight:500; }
+
+    /* ── Section wrapper ── */
+    .tsec {
+      margin-bottom: 64px;
+      scroll-margin-top: 28px;
+    }
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 26px;
+    }
+    .sec-num {
+      font-family: var(--font-display);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      min-width: 30px;
+    }
+    .sec-head h2 {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    /* ── Subsection ── */
+    .sub { margin-bottom: 32px; }
+    .sub h3 {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 11px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sub h3::before {
+      content: '';
+      display: inline-block;
+      width: 3px; height: 13px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* ── Sub-sub heading (e.g. "A. Identity Information") ── */
+    .sub h4 {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 18px 0 8px;
+    }
+
+    /* ── Paragraphs ── */
+    p { color: var(--text-secondary); font-size: 14.5px; margin-bottom: 13px; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--text-primary); font-weight: 500; }
+
+    /* ── Bullet lists ── */
+    ul.tl {
+      list-style: none;
+      margin: 10px 0 14px 0;
+    }
+    ul.tl li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      margin-bottom: 7px;
+      line-height: 1.72;
+    }
+    ul.tl li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.45;
+    }
+
+    /* ── Definition cards ── */
+    .def-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+      gap: 13px;
+      margin: 18px 0;
+    }
+    .def-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px 17px;
+      transition: border-color 0.14s;
+    }
+    .def-card:hover { border-color: var(--accent); }
+    .def-card .term {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .def-card p { font-size: 13px; margin: 0; }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-left: 3px solid var(--accent);
+      background: var(--surface-2);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 15px 19px;
+      margin: 16px 0;
+    }
+    .callout p { font-size: 13.5px; margin: 0; }
+    .callout.warn  { border-color: #F59E0B; }
+    .callout.warn  p { color: #C8991F; }
+    .callout.danger { border-color: #EF4444; }
+    .callout.danger p { color: #C06060; }
+
+    /* ── KYC group blocks ── */
+    .kyc-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 22px;
+      margin: 13px 0;
+    }
+    .kyc-lbl {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 11px;
+    }
+
+    /* ── Contact cards ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(238px,1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .contact-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      transition: border-color 0.14s, transform 0.14s;
+    }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .contact-card .cc-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 9px;
+    }
+    .contact-card .cc-val { font-size: 13.5px; color: var(--text-primary); font-weight: 500; }
+    .contact-card a { color: var(--accent); text-decoration: none; font-size: 13.5px; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ── Divider ── */
+    .rule { border:none; border-top:1px solid var(--border); margin: 44px 0; }
+
+    /* ── Back-to-top ── */
+    #btt {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s, transform 0.18s;
+      z-index: 200;
+    }
+    #btt.show { opacity:1; pointer-events:all; }
+    #btt:hover { transform: translateY(-3px); }
+    #btt svg { width:15px; height:15px; stroke:#fff; fill:none; stroke-width:2.5; stroke-linecap:round; }
+
+    /* ── Responsive ── */
+    @media (max-width: 880px) {
+      .sidebar { display: none; }
+      .main { padding: 36px 22px 72px; }
+    }
+    @media (max-width: 500px) {
+      .main { padding: 24px 14px 56px; }
+      .def-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<button id="btt" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<div class="layout">
+
+  <!-- ══ SIDEBAR ══════════════════════════════════════════════ -->
+  <nav class="sidebar" aria-label="Table of contents">
+    <div class="sb-brand">
+      <div class="wordmark">Themegatrader</div>
+      <div class="doc-type">Terms &amp; Conditions</div>
+    </div>
+    <div class="sb-nav">
+      <a href="#s1"><span class="n">1</span>Introduction and Acceptance</a>
+      <a href="#s2"><span class="n">2</span>Definitions</a>
+      <a href="#s3"><span class="n">3</span>Eligibility and Account Registration</a>
+      <a href="#s4"><span class="n">4</span>Services Provided</a>
+      <a href="#s5"><span class="n">5</span>User Accounts and Responsibilities</a>
+      <a href="#s6"><span class="n">6</span>KYC, AML and Compliance</a>
+      <a href="#s7"><span class="n">7</span>Prohibited Activities</a>
+      <a href="#s8"><span class="n">8</span>Cryptocurrency Risks and Disclaimers</a>
+      <a href="#s9"><span class="n">9</span>Fees, Charges and Payments</a>
+      <a href="#s10"><span class="n">10</span>Security and Account Protection</a>
+      <a href="#s11"><span class="n">11</span>Privacy and Data Protection</a>
+      <a href="#s12"><span class="n">12</span>Suspension, Restriction and Termination</a>
+      <a href="#s13"><span class="n">13</span>Limitation of Liability</a>
+      <a href="#s14"><span class="n">14</span>Indemnity</a>
+      <a href="#s15"><span class="n">15</span>Governing Law and Jurisdiction</a>
+      <a href="#s16"><span class="n">16</span>Suspensions, Restrictions, Freezing and Termination</a>
+      <a href="#s17"><span class="n">17</span>Refunds, Reversals and Chargebacks</a>
+      <a href="#s18"><span class="n">18</span>Automated Monitoring and Compliance</a>
+      <a href="#s19"><span class="n">19</span>Risk Disclosure and No Financial Advice</a>
+      <a href="#s20"><span class="n">20</span>Disclaimer of Warranties</a>
+      <a href="#s21"><span class="n">21</span>Force Majeure</a>
+      <a href="#s22"><span class="n">22</span>Dispute Resolution</a>
+      <a href="#s23"><span class="n">23</span>Updates to Terms and Conditions</a>
+      <a href="#s24"><span class="n">24</span>Contact Information</a>
+    </div>
+    <div class="sb-footer">© Themega Global Limited.<br>All rights reserved.</div>
+  </nav>
+
+  <!-- ══ MAIN ═════════════════════════════════════════════════ -->
+  <main class="main">
+
+    <header class="hero">
+      <div class="hero-eyebrow"><span class="dot"></span>Legal Document</div>
+      <h1>THEMEGATRADER TERMS AND<br><em>CONDITIONS (TERMS OF USE)</em></h1>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <div class="lbl">Company</div>
+          <div class="val">Themega Global Limited</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="lbl">Operating as</div>
+          <div class="val">Themegatrader</div>
+        </div>
+        <div class="hero-meta-item">
+          <div class="lbl">Jurisdiction</div>
+          <div class="val">Federal Republic of Nigeria</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="notice">
+      <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+      </svg>
+      <p><strong>By accessing, browsing, registering for, or using any Themegatrader services</strong>, you acknowledge that you have read, understood, and agreed to be legally bound by these Terms and all applicable policies incorporated by reference. If you do not agree to these Terms, you must immediately discontinue use of Themegatrader Services.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         1. INTRODUCTION AND ACCEPTANCE OF TERMS
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s1">
+      <div class="sec-head">
+        <span class="sec-num">1</span>
+        <h2>INTRODUCTION AND ACCEPTANCE OF TERMS</h2>
+      </div>
+
+      <p>These Terms and Conditions ("Terms," "Terms of Use," or "Agreement") govern access to and use of the services, products, platforms, websites, applications, APIs, digital systems, telecommunications solutions, cryptocurrency-related services, and associated functionalities provided by Themega Global Limited, operating as Themegatrader ("Themegatrader," "Company," "we," "our," or "us").</p>
+
+      <p>These Terms constitute a legally binding agreement between Themegatrader and any person, entity, customer, visitor, merchant, partner, developer, or user ("User," "Customer," "you," or "your") who accesses, browses, registers for, or uses any Themegatrader services.</p>
+
+      <p>These Terms apply to all users of:</p>
+      <ul class="tl">
+        <li>The official Themegatrader website at www.themegatrader.com;</li>
+        <li>Themegatrader mobile applications;</li>
+        <li>Themegatrader APIs accessed directly or through third-party systems;</li>
+        <li>Cryptocurrency exchange and marketplace services;</li>
+        <li>Digital wallet, deposit, transfer, payment, and withdrawal functionality;</li>
+        <li>Fiat-to-cryptocurrency and cryptocurrency-to-fiat transaction services;</li>
+        <li>Peer-to-peer or marketplace services where applicable;</li>
+        <li>Telecommunications services including airtime purchases, mobile data subscriptions, utility bill payments, electricity payments, cable television subscriptions, and digital service payments;</li>
+        <li>Payment and settlement systems;</li>
+        <li>Any software, digital products, tools, infrastructure, or services operated, licensed, or controlled by Themega Global Limited.</li>
+      </ul>
+
+      <p>Collectively, these are referred to as the "Services" or "Themegatrader Platform."</p>
+
+      <p>By accessing, browsing, registering for, or using the Themegatrader Platform, you acknowledge that you have read, understood, and agreed to be legally bound by these Terms and all applicable policies incorporated by reference, including but not limited to:</p>
+      <ul class="tl">
+        <li>Privacy Policy;</li>
+        <li>AML/KYC Policy;</li>
+        <li>Compliance Policies;</li>
+        <li>Risk Disclosure Statements;</li>
+        <li>Cookie Policy;</li>
+        <li>Trading Rules and Fee Schedules;</li>
+        <li>Any additional service-specific terms.</li>
+      </ul>
+
+      <p>If you do not agree to these Terms, you must immediately discontinue use of Themegatrader Services.</p>
+
+      <p>Themegatrader reserves the right to suspend, limit, deny, or terminate access to the Services where users fail to comply with these Terms or where necessary for legal, operational, regulatory, cybersecurity, fraud prevention, or risk management purposes.</p>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         2. DEFINITIONS
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s2">
+      <div class="sec-head">
+        <span class="sec-num">2</span>
+        <h2>DEFINITIONS</h2>
+      </div>
+
+      <p>For the purposes of these Terms:</p>
+
+      <div class="def-grid">
+        <div class="def-card">
+          <div class="term">"Account"</div>
+          <p>means a registered user profile created to access Themegatrader Services.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"AML/CTF"</div>
+          <p>means Anti-Money Laundering and Counter-Terrorism Financing laws, obligations, regulations, and compliance procedures.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"API"</div>
+          <p>means Application Programming Interface technology enabling communication between Themegatrader systems and third-party software.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"Applicable Law"</div>
+          <p>means all laws, regulations, directives, guidance, court orders, governmental instructions, regulatory obligations, and compliance requirements applicable to Themegatrader or the User.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"Cryptocurrency" or "Digital Asset"</div>
+          <p>means blockchain-based or cryptographically secured digital representations of value or utility.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"Fiat Currency"</div>
+          <p>means government-issued legal tender including NGN and other supported currencies.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"KYC"</div>
+          <p>means Know Your Customer verification obligations used to identify and verify users.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"Personal Information"</div>
+          <p>means data relating to an identified or identifiable individual in accordance with the Privacy Policy.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"Platform"</div>
+          <p>means Themegatrader websites, mobile applications, APIs, software systems, telecommunications systems, wallets, digital infrastructure, databases, and related technologies.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"Services"</div>
+          <p>means all services made available by Themegatrader.</p>
+        </div>
+        <div class="def-card">
+          <div class="term">"User," "You," or "Customer"</div>
+          <p>means any person or legal entity using Themegatrader Services.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         3. ELIGIBILITY AND ACCOUNT REGISTRATION
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s3">
+      <div class="sec-head">
+        <span class="sec-num">3</span>
+        <h2>ELIGIBILITY AND ACCOUNT REGISTRATION</h2>
+      </div>
+
+      <p>To access, register for, or use any Themegatrader Services, users must meet the eligibility requirements established by Themega Global Limited ("Themegatrader"), applicable laws, regulatory obligations, compliance requirements, and internal risk management procedures.</p>
+
+      <p>By accessing or using Themegatrader Services, creating an account, submitting personal information, conducting transactions, or interacting with the Themegatrader Platform, users represent, warrant, and undertake that they:</p>
+      <ul class="tl">
+        <li>Are at least eighteen (18) years of age or otherwise possess full legal contractual capacity under applicable law in their jurisdiction of residence;</li>
+        <li>Have full legal authority, power, and capacity to enter into legally binding agreements and comply with these Terms and Conditions;</li>
+        <li>Are not prohibited, restricted, disqualified, or otherwise legally prevented from accessing or using Themegatrader Services under any applicable law, regulation, sanctions regime, governmental order, or judicial restriction;</li>
+        <li>Are not located in, ordinarily resident in, or acting from jurisdictions prohibited by applicable sanctions laws or regulatory restrictions;</li>
+        <li>Are not acting on behalf of sanctioned individuals, sanctioned entities, politically exposed persons (where prohibited), terrorist organizations, criminal enterprises, or any unlawful third party;</li>
+        <li>Will provide complete, accurate, truthful, valid, current, and non-misleading information at all times;</li>
+        <li>Will promptly update personal, financial, identity verification, telecommunications, payment, or account information where changes occur;</li>
+        <li>Will comply with all applicable laws, regulations, tax obligations, sanctions programs, anti-money laundering obligations, and regulatory requirements relevant to their use of the Services;</li>
+        <li>Will not use Themegatrader Services for unlawful, fraudulent, deceptive, abusive, unauthorized, or prohibited purposes;</li>
+        <li>Understand and accept the risks associated with digital asset transactions, online financial systems, telecommunications services, digital payments, and internet-based technologies.</li>
+      </ul>
+
+      <div class="sub">
+        <h3>3.1 Account Registration Requirements</h3>
+        <p>To access certain Services, users may be required to register an account and provide information requested by Themegatrader for identity verification, fraud prevention, compliance, security, and operational purposes.</p>
+        <p>Users may be required to provide:</p>
+
+        <h4>A. Identity Information</h4>
+        <ul class="tl">
+          <li>Full legal name;</li>
+          <li>Date of birth;</li>
+          <li>Nationality;</li>
+          <li>Residential address;</li>
+          <li>Government-issued identification details;</li>
+          <li>Tax-related information where applicable.</li>
+        </ul>
+
+        <h4>B. Contact Information</h4>
+        <ul class="tl">
+          <li>Email address;</li>
+          <li>Mobile telephone number;</li>
+          <li>Residential or billing address;</li>
+          <li>Communication preferences.</li>
+        </ul>
+
+        <h4>C. Identity Verification Information (KYC)</h4>
+        <p>Themegatrader may request documents or information including:</p>
+        <ul class="tl">
+          <li>National Identification Number (NIN);</li>
+          <li>Bank Verification Number (BVN);</li>
+          <li>Passport information;</li>
+          <li>Driver's licence;</li>
+          <li>Utility bills;</li>
+          <li>Proof of address;</li>
+          <li>Facial verification or liveness checks;</li>
+          <li>Video verification;</li>
+          <li>Signature verification;</li>
+          <li>Source of funds or source of wealth documentation;</li>
+          <li>Enhanced Due Diligence (EDD) documentation where required.</li>
+        </ul>
+
+        <p>Themegatrader reserves the right to request additional documentation at any time where necessary for compliance, fraud prevention, sanctions screening, risk assessment, regulatory reporting, cybersecurity, account security, telecommunications verification, or lawful operational purposes.</p>
+      </div>
+
+      <div class="sub">
+        <h3>3.2 Verification and Compliance Reviews</h3>
+        <p>Themegatrader may conduct identity verification, sanctions screening, fraud checks, risk assessments, behavioral reviews, telecommunications verification, transaction monitoring, compliance investigations, and Enhanced Due Diligence reviews at onboarding and periodically throughout the duration of account use.</p>
+        <p>Users acknowledge and agree that Themegatrader may:</p>
+        <ul class="tl">
+          <li>Verify information through third-party service providers;</li>
+          <li>Request supplementary documentation;</li>
+          <li>Delay, suspend, restrict, or reject transactions pending verification;</li>
+          <li>Freeze withdrawals or account access during investigations;</li>
+          <li>Conduct ongoing monitoring for suspicious activity or compliance purposes.</li>
+        </ul>
+        <p>Failure to satisfy verification or compliance requirements may result in restrictions on Services, transaction limitations, delayed access, temporary suspensions, account freezes, or termination.</p>
+      </div>
+
+      <div class="sub">
+        <h3>3.3 Account Security Responsibilities</h3>
+        <p>Users are solely and exclusively responsible for maintaining the confidentiality, security, and integrity of:</p>
+        <ul class="tl">
+          <li>Usernames and passwords;</li>
+          <li>Authentication credentials;</li>
+          <li>Multi-factor authentication methods;</li>
+          <li>Devices used to access Services;</li>
+          <li>Recovery methods and backup credentials;</li>
+          <li>Wallet security credentials;</li>
+          <li>API keys and access tokens.</li>
+        </ul>
+        <p>Users agree to:</p>
+        <ul class="tl">
+          <li>Maintain secure passwords and authentication practices;</li>
+          <li>Prevent unauthorized access to their devices or credentials;</li>
+          <li>Notify Themegatrader immediately of suspected compromise, unauthorized access, fraud, or suspicious account activity;</li>
+          <li>Log out of devices where appropriate;</li>
+          <li>Avoid sharing credentials with unauthorized third parties.</li>
+        </ul>
+        <p>Themegatrader shall not be liable for losses, damages, unauthorized transactions, or account compromises resulting from user negligence, credential sharing, phishing attacks, malware infections, compromised devices, weak passwords, or failure to maintain adequate security practices.</p>
+      </div>
+
+      <div class="sub">
+        <h3>3.4 Account Restrictions, Suspension, or Refusal</h3>
+        <p>Themegatrader reserves the right, at its sole discretion and without prior notice where legally permissible, to deny registration, refuse onboarding, suspend access, restrict Services, freeze balances, delay transactions, deactivate features, or terminate accounts where:</p>
+        <ul class="tl">
+          <li>False, inaccurate, incomplete, fraudulent, or misleading information is provided;</li>
+          <li>Fraud indicators or suspicious activities are identified;</li>
+          <li>AML/KYC obligations remain incomplete;</li>
+          <li>Regulatory concerns arise;</li>
+          <li>Security threats are detected;</li>
+          <li>Unauthorized access or account compromise is suspected;</li>
+          <li>Telecommunications abuse or misuse is detected;</li>
+          <li>Users violate these Terms or applicable law;</li>
+          <li>Compliance obligations require intervention;</li>
+          <li>Sanctions or legal restrictions apply.</li>
+        </ul>
+        <p>Themegatrader reserves the right to conduct investigations and cooperate with regulators, law enforcement agencies, courts, telecommunications authorities, financial institutions, payment processors, and compliance agencies where required.</p>
+      </div>
+
+      <div class="sub">
+        <h3>3.5 Responsibility for Account Activities</h3>
+        <p>Users remain fully responsible and liable for all activities occurring under their account, whether authorized or unauthorized, except where otherwise required by applicable law.</p>
+        <p>Users acknowledge that any transaction, instruction, request, telecommunications purchase, API activity, authentication action, or account interaction performed through valid account credentials may be treated as authorized by Themegatrader unless evidence demonstrates otherwise.</p>
+        <p>Themegatrader reserves the right to rely on account authentication mechanisms as proof of user authorization for activities conducted through the Platform.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         4. SERVICES PROVIDED
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s4">
+      <div class="sec-head">
+        <span class="sec-num">4</span>
+        <h2>SERVICES PROVIDED</h2>
+      </div>
+
+      <p>Themega Global Limited ("Themegatrader") may provide digital, financial technology, telecommunications, marketplace, payment, cryptocurrency, compliance, wallet, API and related services through the Themegatrader Platform.</p>
+      <p>The Services made available by Themegatrader may include, without limitation, cryptocurrency exchange functionality, digital asset services, payment facilitation, telecommunications-related services, wallet services, API integrations, account management tools, compliance systems, settlement systems, marketplace functionality, and other technology-enabled financial or digital products introduced from time to time.</p>
+      <p>Themegatrader reserves the right, at its sole discretion, to determine the nature, scope, availability, eligibility, functionality, limitations, restrictions, pricing, and operational conditions applicable to any Service.</p>
+
+      <div class="sub">
+        <h3>4.1 Cryptocurrency Services</h3>
+        <p>Themegatrader may facilitate cryptocurrency, blockchain, and digital asset-related services, including but not limited to:</p>
+        <ul class="tl">
+          <li>Buying, selling, swapping, converting, exchanging, or transferring supported cryptocurrencies or digital assets;</li>
+          <li>Fiat-to-cryptocurrency transactions;</li>
+          <li>Cryptocurrency-to-fiat conversion services;</li>
+          <li>Cryptocurrency-to-cryptocurrency exchange functionality;</li>
+          <li>Marketplace services relating to supported digital assets;</li>
+          <li>Blockchain transaction facilitation and settlement;</li>
+          <li>Digital wallet services and wallet management functionality;</li>
+          <li>Cryptocurrency deposits and withdrawals;</li>
+          <li>Storage, transfer, and transaction processing services;</li>
+          <li>Peer-to-peer transaction functionality where supported;</li>
+          <li>Liquidity aggregation and execution routing where applicable;</li>
+          <li>Digital asset settlement services;</li>
+          <li>Trading-related functionalities and transaction execution systems.</li>
+        </ul>
+        <p>Users acknowledge that cryptocurrency markets involve substantial technological, market, liquidity, cybersecurity, operational, and regulatory risks and that blockchain transactions may be irreversible, delayed, or affected by external network conditions beyond Themegatrader's reasonable control.</p>
+        <p>Themegatrader does not guarantee:</p>
+        <ul class="tl">
+          <li>Asset performance;</li>
+          <li>Market profitability;</li>
+          <li>Transaction completion times;</li>
+          <li>Blockchain confirmation times;</li>
+          <li>Continuous market availability;</li>
+          <li>Price stability;</li>
+          <li>Liquidity levels.</li>
+        </ul>
+        <p>Themegatrader may determine, suspend, restrict, delist, or discontinue support for any cryptocurrency, blockchain network, token, trading pair, wallet service, or digital asset feature at any time.</p>
+      </div>
+
+      <div class="sub">
+        <h3>4.2 Fiat Payment, Deposit, and Withdrawal Services</h3>
+        <p>Themegatrader may provide payment processing, settlement, fiat funding, deposit, withdrawal, conversion, and transfer functionality including:</p>
+        <ul class="tl">
+          <li>Fiat currency deposits;</li>
+          <li>Fiat withdrawals;</li>
+          <li>Payment processing;</li>
+          <li>Settlement services;</li>
+          <li>Transfer facilitation;</li>
+          <li>Banking integrations;</li>
+          <li>Payment gateway integrations;</li>
+          <li>Merchant payment functionality where supported;</li>
+          <li>Transaction processing and reconciliation systems.</li>
+        </ul>
+        <p>Themegatrader may impose limits, delays, reviews, restrictions, verification requirements, transaction thresholds, or operational controls relating to fiat transactions for legal, operational, regulatory, fraud prevention, sanctions screening, risk management, or compliance purposes.</p>
+        <p>Users acknowledge that payment processing may depend on third-party banking institutions, payment processors, telecommunications providers, clearing systems, financial institutions, or settlement partners and may therefore be delayed, interrupted, reversed, or restricted.</p>
+      </div>
+
+      <div class="sub">
+        <h3>4.3 Telecommunications Services</h3>
+        <p>Themegatrader may facilitate telecommunications and digital utility-related services, including:</p>
+        <ul class="tl">
+          <li>Airtime purchases and recharge services;</li>
+          <li>Mobile data subscriptions;</li>
+          <li>Utility bill payments;</li>
+          <li>Electricity bill payments and prepaid meter top-ups;</li>
+          <li>Cable television subscriptions and renewals;</li>
+          <li>Internet subscription payments;</li>
+          <li>Digital service subscriptions;</li>
+          <li>Telecommunications-related digital products;</li>
+          <li>Third-party service settlement functionality.</li>
+        </ul>
+        <p>Themegatrader acts as a digital facilitator or intermediary for telecommunications services supplied by third-party telecommunications providers, utility vendors, aggregators, payment processors, merchants, or service operators.</p>
+        <p>Users acknowledge that:</p>
+        <ul class="tl">
+          <li>Telecommunications transactions may be irreversible after processing;</li>
+          <li>Service availability depends on third-party providers;</li>
+          <li>Delivery timelines may vary;</li>
+          <li>Technical failures, downtime, interruptions, outages, provider restrictions, or system errors may occur.</li>
+        </ul>
+        <p>Themegatrader shall not be liable for interruptions, pricing adjustments, service unavailability, telecom network failures, incorrect user submissions, provider-side errors, or delays caused by third-party telecommunications systems.</p>
+      </div>
+
+      <div class="sub">
+        <h3>4.4 Wallet Services</h3>
+        <p>Themegatrader may provide wallet-related functionality to facilitate:</p>
+        <ul class="tl">
+          <li>Storage of supported digital assets;</li>
+          <li>Deposit processing;</li>
+          <li>Withdrawal functionality;</li>
+          <li>Transaction tracking;</li>
+          <li>Wallet address generation;</li>
+          <li>Transaction history;</li>
+          <li>Internal transfers;</li>
+          <li>Account balance visibility.</li>
+        </ul>
+        <p>Wallet functionality may be custodial, non-custodial, or hybrid in nature depending on service architecture.</p>
+        <p>Themegatrader reserves the right to implement transaction limits, wallet freezes, maintenance restrictions, withdrawal delays, compliance holds, or security controls where necessary.</p>
+        <p>Users acknowledge that blockchain-based wallet systems may experience:</p>
+        <ul class="tl">
+          <li>Congestion;</li>
+          <li>Delays;</li>
+          <li>Smart contract risks;</li>
+          <li>Forks;</li>
+          <li>Validator failures;</li>
+          <li>Cybersecurity incidents;</li>
+          <li>External disruptions.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>4.5 API Services and Third-Party Integrations</h3>
+        <p>Themegatrader may make APIs available to facilitate:</p>
+        <ul class="tl">
+          <li>Third-party software integrations;</li>
+          <li>Automated transaction execution;</li>
+          <li>Programmatic access to platform functionality;</li>
+          <li>Wallet functionality integration;</li>
+          <li>Telecommunications integrations;</li>
+          <li>Payment processing integrations;</li>
+          <li>Marketplace interoperability;</li>
+          <li>Data exchange and system interoperability.</li>
+        </ul>
+        <p>Users accessing APIs agree to:</p>
+        <ul class="tl">
+          <li>Use APIs lawfully;</li>
+          <li>Comply with security requirements;</li>
+          <li>Avoid abuse or excessive requests;</li>
+          <li>Prevent unauthorized access;</li>
+          <li>Maintain secure API credentials and authentication mechanisms.</li>
+        </ul>
+        <p>Themegatrader reserves the right to:</p>
+        <ul class="tl">
+          <li>Limit API access;</li>
+          <li>Suspend integrations;</li>
+          <li>Impose rate limits;</li>
+          <li>Restrict usage volumes;</li>
+          <li>Disable integrations;</li>
+          <li>Modify API architecture without notice.</li>
+        </ul>
+        <p>Themegatrader shall not guarantee uninterrupted API functionality or compatibility with third-party systems.</p>
+      </div>
+
+      <div class="sub">
+        <h3>4.6 Service Availability, Modifications, and Restrictions</h3>
+        <p>Themegatrader reserves the unrestricted right, at its sole discretion and without prior notice where legally permissible, to:</p>
+        <ul class="tl">
+          <li>Modify, expand, suspend, discontinue, replace, restrict, or remove any Service;</li>
+          <li>Add new features or products;</li>
+          <li>Remove supported cryptocurrencies or telecom providers;</li>
+          <li>Modify pricing structures, eligibility requirements, limits, functionality, interfaces, or supported jurisdictions;</li>
+          <li>Introduce maintenance windows, security reviews, or service limitations;</li>
+          <li>Restrict access based on geography, legal obligations, sanctions, compliance requirements, cybersecurity risks, operational risks, fraud concerns, or commercial considerations.</li>
+        </ul>
+        <p>Themegatrader does not guarantee uninterrupted availability of Services and may temporarily or permanently suspend Services where necessary for:</p>
+        <ul class="tl">
+          <li>Maintenance;</li>
+          <li>Security incidents;</li>
+          <li>Compliance obligations;</li>
+          <li>Regulatory requirements;</li>
+          <li>Fraud prevention;</li>
+          <li>Risk management;</li>
+          <li>Technical upgrades;</li>
+          <li>Third-party provider failures;</li>
+          <li>Operational continuity.</li>
+        </ul>
+        <p>Users acknowledge that Service functionality, supported assets, telecommunications products, jurisdictions, integrations, pricing, and availability may change over time without liability to Themegatrader.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         5. USER ACCOUNTS AND RESPONSIBILITIES
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s5">
+      <div class="sec-head">
+        <span class="sec-num">5</span>
+        <h2>USER ACCOUNTS AND RESPONSIBILITIES</h2>
+      </div>
+
+      <p>Users are solely responsible for the lawful, secure, accurate, and responsible use of their Themegatrader account and all activities conducted through the Themegatrader Platform.</p>
+      <p>By registering for, accessing, or using Themegatrader Services, users acknowledge and agree that they assume full responsibility for maintaining account integrity, safeguarding credentials, ensuring lawful usage, and complying with all applicable legal, contractual, regulatory, cybersecurity, telecommunications, and compliance obligations.</p>
+
+      <div class="sub">
+        <h3>5.1 Account Ownership and Responsibility</h3>
+        <p>Each account registered on the Themegatrader Platform is personal to the registered user unless otherwise expressly authorized by Themegatrader.</p>
+        <p>Users acknowledge and agree that they are solely and fully responsible for:</p>
+        <ul class="tl">
+          <li>Maintaining account confidentiality and security;</li>
+          <li>Safeguarding passwords, authentication credentials, and recovery information;</li>
+          <li>Maintaining device security and secure internet access practices;</li>
+          <li>Ensuring lawful and authorized use of Services;</li>
+          <li>Providing complete, accurate, truthful, and current information;</li>
+          <li>Updating personal, payment, telecommunications, and compliance information where necessary;</li>
+          <li>Monitoring account activity, balances, transaction records, telecommunications purchases, and security alerts;</li>
+          <li>Reporting suspicious activity, unauthorized access, fraud, or security concerns immediately;</li>
+          <li>Maintaining the confidentiality of wallet information, authentication devices, API keys, and linked payment systems;</li>
+          <li>Ensuring compliance with applicable laws, tax obligations, sanctions requirements, AML/CTF obligations, and platform rules.</li>
+        </ul>
+        <p>Users remain fully liable for any activities, instructions, purchases, withdrawals, transfers, telecommunications transactions, API requests, or interactions conducted through their account, whether directly authorized by the user or resulting from failure to maintain adequate security safeguards.</p>
+      </div>
+
+      <div class="sub">
+        <h3>5.2 Credential Security and Authentication Responsibilities</h3>
+        <p>Users are solely responsible for maintaining the confidentiality, security, and protection of:</p>
+        <ul class="tl">
+          <li>Usernames;</li>
+          <li>Passwords;</li>
+          <li>Multi-factor authentication credentials;</li>
+          <li>Authentication applications;</li>
+          <li>Security tokens;</li>
+          <li>Recovery phrases or backup credentials;</li>
+          <li>Linked devices;</li>
+          <li>Wallet access credentials;</li>
+          <li>API keys and authentication credentials;</li>
+          <li>Payment authentication mechanisms.</li>
+        </ul>
+        <p>Users agree to:</p>
+        <ul class="tl">
+          <li>Use strong and secure passwords;</li>
+          <li>Enable multi-factor authentication where available;</li>
+          <li>Avoid sharing passwords or authentication credentials;</li>
+          <li>Maintain secure devices and internet connections;</li>
+          <li>Protect login credentials from theft, phishing, malware, social engineering, unauthorized disclosure, or cyber compromise;</li>
+          <li>Promptly notify Themegatrader of suspected unauthorized access or credential compromise.</li>
+        </ul>
+        <p>Themegatrader shall not be liable for losses resulting from:</p>
+        <ul class="tl">
+          <li>Password compromise;</li>
+          <li>Credential sharing;</li>
+          <li>Weak authentication practices;</li>
+          <li>Device compromise;</li>
+          <li>Phishing attacks;</li>
+          <li>Malware infections;</li>
+          <li>SIM swap attacks;</li>
+          <li>Social engineering;</li>
+          <li>Unauthorized access caused by user negligence.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>5.3 Prohibited Account Activities</h3>
+        <p>Users agree that they shall not:</p>
+        <ul class="tl">
+          <li>Share account credentials with unauthorized persons;</li>
+          <li>Permit third parties to access accounts without authorization;</li>
+          <li>Impersonate another person or entity;</li>
+          <li>Use false, inaccurate, misleading, deceptive, or fraudulent information;</li>
+          <li>Circumvent or attempt to bypass platform security systems or compliance controls;</li>
+          <li>Manipulate transactions or exploit system vulnerabilities;</li>
+          <li>Reverse engineer, interfere with, or compromise Themegatrader systems;</li>
+          <li>Conduct unlawful activities through the Platform;</li>
+          <li>Engage in fraudulent, deceptive, misleading, or abusive conduct;</li>
+          <li>Use Services for scams, phishing, ransomware, cybercrime, or criminal enterprises;</li>
+          <li>Engage in money laundering, sanctions evasion, terrorist financing, tax evasion, identity theft, or financial crimes;</li>
+          <li>Use Services to facilitate prohibited, illegal, or unauthorized activities;</li>
+          <li>Attempt to gain unauthorized access to systems, accounts, APIs, wallets, or infrastructure;</li>
+          <li>Abuse telecommunications services or manipulate telecom-related systems;</li>
+          <li>Introduce malicious software, malware, viruses, bots, scripts, or harmful code into the Platform.</li>
+        </ul>
+        <p>Users further agree not to engage in conduct that may:</p>
+        <ul class="tl">
+          <li>Damage Themegatrader's systems or reputation;</li>
+          <li>Disrupt Service availability;</li>
+          <li>Interfere with user access;</li>
+          <li>Create regulatory, financial, operational, cybersecurity, or reputational risks.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>5.4 Monitoring, Investigations, and Corrective Measures</h3>
+        <p>Themegatrader reserves the right, at its sole discretion and without prior notice where legally permissible, to investigate suspected misuse, abuse, suspicious activity, fraud, compliance concerns, cybersecurity incidents, sanctions risks, telecommunications abuse, or unlawful conduct.</p>
+        <p>Themegatrader may take corrective action including:</p>
+        <ul class="tl">
+          <li>Monitoring account activity;</li>
+          <li>Conducting investigations;</li>
+          <li>Restricting account access;</li>
+          <li>Delaying transactions;</li>
+          <li>Freezing balances;</li>
+          <li>Suspending services;</li>
+          <li>Disabling APIs or integrations;</li>
+          <li>Requesting additional information or documentation;</li>
+          <li>Escalating suspicious activity for compliance review;</li>
+          <li>Reporting activities to regulators, law enforcement agencies, telecommunications authorities, courts, financial institutions, or relevant authorities.</li>
+        </ul>
+        <p>Themegatrader may implement temporary or permanent restrictions where reasonably necessary for:</p>
+        <ul class="tl">
+          <li>Fraud prevention;</li>
+          <li>Cybersecurity protection;</li>
+          <li>AML/KYC compliance;</li>
+          <li>Telecommunications integrity;</li>
+          <li>Platform security;</li>
+          <li>Legal compliance;</li>
+          <li>Regulatory reporting;</li>
+          <li>Operational continuity.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>5.5 User Duty to Notify Themegatrader</h3>
+        <p>Users must promptly notify Themegatrader upon becoming aware of:</p>
+        <ul class="tl">
+          <li>Unauthorized access;</li>
+          <li>Account compromise;</li>
+          <li>Credential theft;</li>
+          <li>Fraudulent transactions;</li>
+          <li>Suspicious telecommunications purchases;</li>
+          <li>Lost devices linked to authentication systems;</li>
+          <li>Security vulnerabilities;</li>
+          <li>Suspected phishing or cyberattacks;</li>
+          <li>Errors in account information.</li>
+        </ul>
+        <p>Failure to promptly report suspicious activity may limit Themegatrader's ability to prevent further harm or recover losses.</p>
+      </div>
+
+      <div class="sub">
+        <h3>5.6 Responsibility for Account Activity</h3>
+        <p>Users acknowledge and agree that Themegatrader may reasonably rely upon successful account authentication, login credentials, device authorization, API credentials, or verification mechanisms as evidence of authorization for actions performed through an account.</p>
+        <p>Unless otherwise required by applicable law, users remain fully liable for activities conducted through their account, including:</p>
+        <ul class="tl">
+          <li>Transactions;</li>
+          <li>Withdrawals;</li>
+          <li>Deposits;</li>
+          <li>Wallet transfers;</li>
+          <li>Telecommunications purchases;</li>
+          <li>Utility payments;</li>
+          <li>API activities;</li>
+          <li>Security settings changes;</li>
+          <li>Account updates;</li>
+          <li>Compliance submissions.</li>
+        </ul>
+        <p>Themegatrader reserves the right to treat instructions transmitted through authenticated access channels as valid and binding.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         6. KYC, AML, AND COMPLIANCE REQUIREMENTS
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s6">
+      <div class="sec-head">
+        <span class="sec-num">6</span>
+        <h2>KYC, AML, AND COMPLIANCE REQUIREMENTS</h2>
+      </div>
+
+      <p>Themega Global Limited ("Themegatrader") maintains comprehensive compliance, identity verification, anti-money laundering, sanctions screening, fraud prevention, counter-terrorism financing, cybersecurity, telecommunications compliance, and regulatory monitoring programs designed to safeguard the integrity, security, legality, and lawful operation of the Themegatrader Platform.</p>
+      <p>By registering for, accessing, or using Themegatrader Services, users agree to comply fully with all Know Your Customer ("KYC"), Anti-Money Laundering ("AML"), Counter-Terrorism Financing ("CTF"), sanctions screening, fraud prevention, due diligence, identity verification, and ongoing compliance obligations imposed by Themegatrader, applicable law, regulatory authorities, internal risk frameworks, and international compliance standards where applicable.</p>
+      <p>Users acknowledge that access to Services may be subject to identity verification, onboarding reviews, risk assessments, transaction monitoring, sanctions screening, enhanced due diligence, and periodic compliance reassessments.</p>
+
+      <div class="sub">
+        <h3>6.1 Identity Verification and KYC Requirements</h3>
+        <p>To comply with legal, regulatory, operational, cybersecurity, and risk management obligations, Themegatrader may require users to provide identity verification information and supporting documentation before or during access to Services.</p>
+        <p>Themegatrader may request information including, but not limited to:</p>
+
+        <h4>A. Government-Issued Identification</h4>
+        <ul class="tl">
+          <li>National Identification Number (NIN);</li>
+          <li>Bank Verification Number (BVN);</li>
+          <li>International passport;</li>
+          <li>Driver's licence;</li>
+          <li>National identity card;</li>
+          <li>Voter identification card where legally permitted;</li>
+          <li>Tax Identification Number (TIN) where applicable.</li>
+        </ul>
+
+        <h4>B. Identity and Contact Verification</h4>
+        <ul class="tl">
+          <li>Full legal name;</li>
+          <li>Date of birth;</li>
+          <li>Nationality;</li>
+          <li>Residential address;</li>
+          <li>Email address;</li>
+          <li>Telephone number;</li>
+          <li>Billing information;</li>
+          <li>Residential verification details.</li>
+        </ul>
+
+        <h4>C. Proof of Address Documentation</h4>
+        <p>Themegatrader may require documentation to confirm residency or address information including:</p>
+        <ul class="tl">
+          <li>Utility bills;</li>
+          <li>Bank statements;</li>
+          <li>Government-issued correspondence;</li>
+          <li>Tax-related documentation;</li>
+          <li>Residential verification letters;</li>
+          <li>Telecommunications account statements;</li>
+          <li>Other legally acceptable proof of residence.</li>
+        </ul>
+
+        <h4>D. Biometric Verification and Authentication</h4>
+        <p>Where legally permissible and necessary for fraud prevention, account security, identity verification, or regulatory compliance, Themegatrader may request:</p>
+        <ul class="tl">
+          <li>Facial recognition verification;</li>
+          <li>Selfies or live facial verification;</li>
+          <li>Liveness detection checks;</li>
+          <li>Signature verification;</li>
+          <li>Video verification;</li>
+          <li>Device authentication;</li>
+          <li>Biometric authentication technologies.</li>
+        </ul>
+        <p>Biometric information shall be processed in accordance with applicable privacy and data protection obligations.</p>
+
+        <h4>E. Financial and Source Verification</h4>
+        <p>Themegatrader may request information relating to:</p>
+        <ul class="tl">
+          <li>Source of funds;</li>
+          <li>Source of wealth;</li>
+          <li>Banking information;</li>
+          <li>Employment details where required;</li>
+          <li>Transaction purpose;</li>
+          <li>Business activities;</li>
+          <li>Beneficiary ownership information;</li>
+          <li>Enhanced financial due diligence documentation.</li>
+        </ul>
+        <p>Themegatrader reserves the right to request supplementary or updated documentation at any time where required for compliance, fraud prevention, cybersecurity, sanctions screening, risk assessment, suspicious activity monitoring, telecommunications verification, or regulatory reporting purposes.</p>
+      </div>
+
+      <div class="sub">
+        <h3>6.2 AML, CTF, and Sanctions Compliance</h3>
+        <p>Users agree that Themegatrader Services shall not be used for unlawful, fraudulent, deceptive, sanctioned, abusive, prohibited, or criminal activities.</p>
+        <p>Users expressly agree not to use Themegatrader Services for:</p>
+        <ul class="tl">
+          <li>Money laundering;</li>
+          <li>Terrorism financing;</li>
+          <li>Sanctions evasion;</li>
+          <li>Tax evasion;</li>
+          <li>Fraudulent activities;</li>
+          <li>Financial crime;</li>
+          <li>Identity theft;</li>
+          <li>Cybercrime;</li>
+          <li>Bribery or corruption;</li>
+          <li>Illegal telecommunications activities;</li>
+          <li>Unauthorized financial transactions;</li>
+          <li>Proceeds of crime concealment.</li>
+        </ul>
+        <p>Themegatrader may implement:</p>
+        <ul class="tl">
+          <li>AML transaction monitoring systems;</li>
+          <li>Behavioral analytics;</li>
+          <li>Blockchain intelligence tools;</li>
+          <li>Risk-scoring mechanisms;</li>
+          <li>Fraud detection systems;</li>
+          <li>Cybersecurity monitoring;</li>
+          <li>Sanctions screening procedures;</li>
+          <li>Politically Exposed Person (PEP) screening;</li>
+          <li>Enhanced Due Diligence (EDD) reviews.</li>
+        </ul>
+        <p>Themegatrader reserves the right to reject, restrict, suspend, review, or prohibit activities considered suspicious, high-risk, unlawful, or inconsistent with regulatory expectations.</p>
+      </div>
+
+      <div class="sub">
+        <h3>6.3 Enhanced Due Diligence (EDD) and Compliance Reviews</h3>
+        <p>Themegatrader may conduct Enhanced Due Diligence ("EDD") where elevated risks, suspicious activity indicators, sanctions concerns, unusual transaction behavior, telecommunications abuse, regulatory obligations, or heightened fraud risks are identified.</p>
+        <p>EDD procedures may include requests for:</p>
+        <ul class="tl">
+          <li>Additional identity documentation;</li>
+          <li>Proof of source of funds;</li>
+          <li>Source of wealth verification;</li>
+          <li>Business registration documents;</li>
+          <li>Beneficial ownership information;</li>
+          <li>Tax documentation;</li>
+          <li>Transaction explanations;</li>
+          <li>Supporting contractual documents;</li>
+          <li>Compliance declarations;</li>
+          <li>Additional interviews or verification procedures.</li>
+        </ul>
+        <p>Compliance reviews may occur:</p>
+        <ul class="tl">
+          <li>During onboarding;</li>
+          <li>Before withdrawals;</li>
+          <li>During high-value transactions;</li>
+          <li>Periodically;</li>
+          <li>Continuously;</li>
+          <li>Upon suspicious activity detection;</li>
+          <li>During investigations;</li>
+          <li>Where required by law or regulation.</li>
+        </ul>
+        <p>Users agree to cooperate fully with all lawful compliance reviews and investigations.</p>
+      </div>
+
+      <div class="sub">
+        <h3>6.4 Monitoring, Restrictions, and Enforcement Measures</h3>
+        <p>Themegatrader reserves the right, at its sole discretion and without prior notice where legally permissible, to monitor account activity, transactions, telecommunications usage, wallet behavior, API activity, payment flows, login behavior, geographic access patterns, device activity, and risk indicators for compliance, fraud prevention, cybersecurity, and lawful operational purposes.</p>
+        <p>Where compliance concerns arise, Themegatrader may:</p>
+        <ul class="tl">
+          <li>Reject or refuse transactions;</li>
+          <li>Restrict account functionality;</li>
+          <li>Freeze withdrawals;</li>
+          <li>Delay processing;</li>
+          <li>Place accounts under review;</li>
+          <li>Suspend or terminate access to Services;</li>
+          <li>Escalate matters for compliance investigation;</li>
+          <li>Require additional documentation;</li>
+          <li>Restrict telecommunications functionality;</li>
+          <li>Block high-risk activity;</li>
+          <li>Freeze balances where legally required.</li>
+        </ul>
+        <p>Users acknowledge that Themegatrader may take preventative action to reduce legal, financial, cybersecurity, fraud, sanctions, regulatory, operational, or reputational risks.</p>
+      </div>
+
+      <div class="sub">
+        <h3>6.5 Reporting and Cooperation with Authorities</h3>
+        <p>Where legally required or reasonably necessary for compliance purposes, Themegatrader may report suspicious, unlawful, fraudulent, sanctioned, or prohibited activity to competent authorities including:</p>
+        <ul class="tl">
+          <li>Courts;</li>
+          <li>Financial intelligence units;</li>
+          <li>Law enforcement agencies;</li>
+          <li>Financial regulators;</li>
+          <li>Telecommunications authorities;</li>
+          <li>Government agencies;</li>
+          <li>Supervisory bodies.</li>
+        </ul>
+        <p>Themegatrader may cooperate with lawful investigations, subpoenas, court orders, regulatory requests, sanctions screening requirements, AML obligations, or fraud prevention initiatives.</p>
+        <p>Users agree that Themegatrader may preserve records, logs, audit trails, communications, transaction histories, verification materials, and investigative information where necessary for compliance or legal purposes.</p>
+      </div>
+
+      <div class="sub">
+        <h3>6.6 Continuous Monitoring and Compliance Obligations</h3>
+        <p>Users acknowledge and agree that compliance obligations may be ongoing and continuous throughout the duration of account use.</p>
+        <p>Themegatrader may periodically or continuously:</p>
+        <ul class="tl">
+          <li>Review account information;</li>
+          <li>Reassess risk profiles;</li>
+          <li>Monitor transaction activity;</li>
+          <li>Verify identity information;</li>
+          <li>Conduct sanctions screening;</li>
+          <li>Review telecommunications usage;</li>
+          <li>Request renewed KYC documentation;</li>
+          <li>Require account re-verification.</li>
+        </ul>
+        <p>Failure to comply with compliance obligations, verification requests, due diligence procedures, or lawful investigations may result in:</p>
+        <ul class="tl">
+          <li>Account restrictions;</li>
+          <li>Service limitations;</li>
+          <li>Delayed processing;</li>
+          <li>Withdrawal freezes;</li>
+          <li>Account suspension;</li>
+          <li>Permanent termination of Services.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         7. PROHIBITED ACTIVITIES
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s7">
+      <div class="sec-head">
+        <span class="sec-num">7</span>
+        <h2>PROHIBITED ACTIVITIES</h2>
+      </div>
+
+      <p>Themega Global Limited ("Themegatrader") maintains a zero-tolerance approach toward unlawful, fraudulent, abusive, deceptive, unauthorized, harmful, or prohibited activities conducted through the Themegatrader Platform.</p>
+      <p>Users shall use Themegatrader Services solely for lawful, authorized, compliant, and legitimate purposes and in accordance with applicable laws, regulations, sanctions programs, telecommunications requirements, cybersecurity standards, and these Terms and Conditions.</p>
+      <p>By accessing or using Themegatrader Services, users expressly agree not to engage in, facilitate, assist, attempt, encourage, conceal, or benefit from prohibited conduct.</p>
+
+      <div class="sub">
+        <h3>7.1 Financial Crime and Illegal Activity</h3>
+        <p>Users shall not use Themegatrader Services for activities involving, relating to, facilitating, supporting, concealing, or benefiting from:</p>
+        <ul class="tl">
+          <li>Money laundering;</li>
+          <li>Terrorism financing;</li>
+          <li>Fraudulent activity;</li>
+          <li>Financial fraud;</li>
+          <li>Scams or deceptive conduct;</li>
+          <li>Ponzi schemes;</li>
+          <li>Pyramid schemes;</li>
+          <li>Market manipulation;</li>
+          <li>Insider dealing or unlawful trading activity;</li>
+          <li>Tax evasion;</li>
+          <li>Sanctions evasion;</li>
+          <li>Bribery or corruption;</li>
+          <li>Proceeds of crime concealment;</li>
+          <li>Embezzlement;</li>
+          <li>Theft of funds;</li>
+          <li>Unauthorized payment processing;</li>
+          <li>Identity theft or impersonation;</li>
+          <li>Financial exploitation;</li>
+          <li>Organized criminal activity;</li>
+          <li>Illegal remittance activity;</li>
+          <li>Unauthorized financial services;</li>
+          <li>Regulatory evasion.</li>
+        </ul>
+        <p>Users further agree not to use Themegatrader Services to disguise, transfer, layer, conceal, or facilitate movement of unlawful proceeds or assets connected to criminal conduct.</p>
+      </div>
+
+      <div class="sub">
+        <h3>7.2 Fraud, Scams, and Deceptive Conduct</h3>
+        <p>Users shall not:</p>
+        <ul class="tl">
+          <li>Conduct fraudulent transactions;</li>
+          <li>Engage in scams or deceptive conduct;</li>
+          <li>Misrepresent identity, ownership, authorization, or legitimacy;</li>
+          <li>Submit false, misleading, forged, manipulated, or inaccurate information;</li>
+          <li>Impersonate persons, businesses, institutions, regulators, or third parties;</li>
+          <li>Engage in phishing, social engineering, spoofing, deception, or account takeover attempts;</li>
+          <li>Facilitate romance scams, investment scams, payment fraud, account fraud, telecom fraud, or online deception;</li>
+          <li>Use Themegatrader Services to facilitate fraudulent fundraising, false investment schemes, or deceptive commercial practices.</li>
+        </ul>
+        <p>Themegatrader reserves the right to investigate and report suspicious fraudulent conduct to relevant authorities.</p>
+      </div>
+
+      <div class="sub">
+        <h3>7.3 Cybercrime, Hacking, and Unauthorized Access</h3>
+        <p>Users shall not:</p>
+        <ul class="tl">
+          <li>Hack, breach, probe, test, or compromise Themegatrader systems;</li>
+          <li>Gain or attempt unauthorized access to accounts, APIs, wallets, databases, infrastructure, servers, telecommunications systems, or security mechanisms;</li>
+          <li>Circumvent access controls or authentication requirements;</li>
+          <li>Introduce malware, ransomware, spyware, trojans, viruses, worms, malicious scripts, bots, or harmful software;</li>
+          <li>Conduct denial-of-service attacks, distributed denial-of-service attacks, or infrastructure disruption;</li>
+          <li>Attempt credential theft or exploit authentication systems;</li>
+          <li>Interfere with platform availability, cybersecurity, operations, or infrastructure;</li>
+          <li>Conduct unauthorized scraping, automated extraction, or abusive system access;</li>
+          <li>Exploit bugs, vulnerabilities, or security weaknesses.</li>
+        </ul>
+        <p>Users shall not use Themegatrader Services for:</p>
+        <ul class="tl">
+          <li>Ransomware payments;</li>
+          <li>Distribution of malware;</li>
+          <li>Cyber extortion;</li>
+          <li>Unauthorized surveillance;</li>
+          <li>Credential harvesting;</li>
+          <li>Cyber-enabled criminal activity.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>7.4 Child Exploitation, Abuse, and Harmful Conduct</h3>
+        <p>Users shall not use Themegatrader Services to facilitate, support, promote, distribute, finance, conceal, or otherwise participate in:</p>
+        <ul class="tl">
+          <li>Child exploitation;</li>
+          <li>Child abuse materials;</li>
+          <li>Human trafficking;</li>
+          <li>Sexual exploitation of minors;</li>
+          <li>Grooming-related activities;</li>
+          <li>Forced labor;</li>
+          <li>Abuse or exploitation-related criminal conduct.</li>
+        </ul>
+        <p>Themegatrader maintains a zero-tolerance policy regarding child exploitation and may immediately suspend access, preserve records, and cooperate with law enforcement or regulatory agencies where such activity is suspected.</p>
+      </div>
+
+      <div class="sub">
+        <h3>7.5 Illegal Gambling, Restricted Transactions, and Unlawful Commerce</h3>
+        <p>Users shall not use Themegatrader Services for:</p>
+        <ul class="tl">
+          <li>Illegal gambling;</li>
+          <li>Unauthorized betting operations;</li>
+          <li>Illegal lotteries;</li>
+          <li>Black-market activities;</li>
+          <li>Sale or purchase of illegal goods or services;</li>
+          <li>Prohibited marketplace activity;</li>
+          <li>Unlawful digital commerce;</li>
+          <li>Restricted or unauthorized financial activity;</li>
+          <li>Transactions prohibited under sanctions, telecommunications, consumer protection, or financial crime laws.</li>
+        </ul>
+        <p>Themegatrader reserves the right to determine whether activity presents legal, regulatory, reputational, operational, or fraud risks.</p>
+      </div>
+
+      <div class="sub">
+        <h3>7.6 Abuse of Platform Systems and Technical Restrictions</h3>
+        <p>Users shall not:</p>
+        <ul class="tl">
+          <li>Reverse engineer Themegatrader systems, software, APIs, databases, algorithms, code, architecture, interfaces, or infrastructure;</li>
+          <li>Copy, reproduce, modify, exploit, decompile, disassemble, or misuse platform technology except as permitted by law;</li>
+          <li>Interfere with, disrupt, damage, overload, or degrade platform operations;</li>
+          <li>Exploit vulnerabilities, loopholes, bugs, configuration weaknesses, or technical defects;</li>
+          <li>Circumvent account restrictions, limits, freezes, suspensions, or security controls;</li>
+          <li>Manipulate platform pricing, market functionality, transaction routing, telecom systems, or settlement mechanisms;</li>
+          <li>Create fake accounts, duplicate accounts, synthetic identities, or unauthorized account structures;</li>
+          <li>Engage in abusive automation, bot activity, excessive API requests, or manipulative platform behavior;</li>
+          <li>Attempt to bypass fraud detection, cybersecurity systems, compliance controls, sanctions screening, or monitoring systems.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>7.7 Sanctions, Restricted Jurisdictions, and Prohibited Persons</h3>
+        <p>Users shall not:</p>
+        <ul class="tl">
+          <li>Use Services in violation of sanctions laws;</li>
+          <li>Act on behalf of sanctioned individuals or entities;</li>
+          <li>Facilitate transactions involving prohibited jurisdictions;</li>
+          <li>Conceal beneficial ownership or transaction purpose;</li>
+          <li>Use Services to evade governmental, regulatory, tax, or compliance obligations.</li>
+        </ul>
+        <p>Themegatrader reserves the right to restrict, reject, freeze, block, or terminate activities involving sanctioned persons, high-risk jurisdictions, suspicious entities, or restricted activities.</p>
+      </div>
+
+      <div class="sub">
+        <h3>7.8 Monitoring, Enforcement, and Corrective Measures</h3>
+        <p>Themegatrader reserves the right, at its sole discretion and without prior notice where legally permissible, to monitor, investigate, restrict, suspend, freeze, delay, terminate, report, or otherwise act upon activities suspected of violating these Terms, applicable laws, compliance obligations, cybersecurity standards, sanctions requirements, or internal risk frameworks.</p>
+        <p>Where prohibited activity is suspected, Themegatrader may:</p>
+        <ul class="tl">
+          <li>Suspend or terminate accounts immediately;</li>
+          <li>Freeze balances or transactions;</li>
+          <li>Restrict withdrawals;</li>
+          <li>Block telecommunications services;</li>
+          <li>Delay processing;</li>
+          <li>Reject transactions;</li>
+          <li>Disable APIs or integrations;</li>
+          <li>Preserve logs, communications, and evidence;</li>
+          <li>Conduct investigations;</li>
+          <li>Cooperate with courts, regulators, law enforcement agencies, telecommunications authorities, financial intelligence units, or government bodies;</li>
+          <li>Report suspicious or unlawful conduct.</li>
+        </ul>
+        <p>Users acknowledge and agree that Themegatrader may implement preventative measures to protect platform security, users, operational continuity, regulatory compliance, and public safety.</p>
+      </div>
+
+      <div class="sub">
+        <h3>7.9 Consequences of Violations</h3>
+        <p>Violation of this Section may result in immediate corrective action, including without limitation:</p>
+        <ul class="tl">
+          <li>Account suspension;</li>
+          <li>Permanent account termination;</li>
+          <li>Transaction rejection;</li>
+          <li>Withdrawal freezes;</li>
+          <li>Service restrictions;</li>
+          <li>Telecommunications access suspension;</li>
+          <li>Compliance escalation;</li>
+          <li>Regulatory reporting;</li>
+          <li>Legal proceedings;</li>
+          <li>Civil recovery actions;</li>
+          <li>Cooperation with law enforcement authorities.</li>
+        </ul>
+        <p>Themegatrader reserves all legal, equitable, contractual, and regulatory rights arising from prohibited conduct or violations of these Terms.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         8. CRYPTOCURRENCY RISKS AND DISCLAIMERS
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s8">
+      <div class="sec-head">
+        <span class="sec-num">8</span>
+        <h2>CRYPTOCURRENCY RISKS AND DISCLAIMERS</h2>
+      </div>
+
+      <p>Users acknowledge and understand that cryptocurrency transactions, blockchain technologies, digital assets, decentralized systems, telecommunications integrations, and online financial services involve substantial risks, uncertainties, and potential losses.</p>
+      <p>By accessing or using Themegatrader Services, users expressly acknowledge, accept, and assume all risks associated with cryptocurrency-related activities and digital financial systems.</p>
+
+      <div class="sub">
+        <h3>8.1 Market and Volatility Risks</h3>
+        <p>Cryptocurrency markets are highly volatile and may experience rapid and unpredictable price fluctuations.</p>
+        <p>Users acknowledge that digital asset values may increase or decrease significantly within short periods due to:</p>
+        <ul class="tl">
+          <li>Market volatility;</li>
+          <li>Liquidity conditions;</li>
+          <li>Investor sentiment;</li>
+          <li>Regulatory developments;</li>
+          <li>Technological changes;</li>
+          <li>Market manipulation;</li>
+          <li>Cybersecurity incidents;</li>
+          <li>Geopolitical events;</li>
+          <li>Economic conditions;</li>
+          <li>Network disruptions.</li>
+        </ul>
+        <p>Users may lose some or all of the value of digital assets held, traded, transferred, or exchanged through Themegatrader Services.</p>
+        <p>Themegatrader does not guarantee:</p>
+        <ul class="tl">
+          <li>Profitability;</li>
+          <li>Market performance;</li>
+          <li>Price stability;</li>
+          <li>Investment returns;</li>
+          <li>Liquidity availability;</li>
+          <li>Preservation of asset value.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>8.2 Liquidity and Execution Risks</h3>
+        <p>Users acknowledge that cryptocurrency markets and digital asset transactions may be affected by:</p>
+        <ul class="tl">
+          <li>Limited liquidity;</li>
+          <li>Thin order books;</li>
+          <li>Delayed execution;</li>
+          <li>Slippage;</li>
+          <li>Price gaps;</li>
+          <li>Order matching delays;</li>
+          <li>Counterparty risks;</li>
+          <li>Market disruptions.</li>
+        </ul>
+        <p>Themegatrader does not guarantee uninterrupted market access, immediate order execution, or execution at desired prices.</p>
+      </div>
+
+      <div class="sub">
+        <h3>8.3 Blockchain and Technological Risks</h3>
+        <p>Users acknowledge risks associated with blockchain technologies and decentralized systems including:</p>
+        <ul class="tl">
+          <li>Blockchain congestion;</li>
+          <li>Delayed confirmations;</li>
+          <li>Failed transactions;</li>
+          <li>Smart contract vulnerabilities;</li>
+          <li>Consensus failures;</li>
+          <li>Blockchain forks;</li>
+          <li>Validator failures;</li>
+          <li>Wallet incompatibility;</li>
+          <li>Network outages;</li>
+          <li>Software bugs;</li>
+          <li>Technological defects;</li>
+          <li>Protocol failures.</li>
+        </ul>
+        <p>Transactions broadcast to blockchain networks may become irreversible and may not be recoverable.</p>
+        <p>Themegatrader shall not be liable for losses arising from external blockchain network failures or decentralized infrastructure disruptions.</p>
+      </div>
+
+      <div class="sub">
+        <h3>8.4 Cybersecurity and Digital Asset Risks</h3>
+        <p>Digital asset platforms and online financial systems may be targeted by cybersecurity threats including:</p>
+        <ul class="tl">
+          <li>Hacking;</li>
+          <li>Malware;</li>
+          <li>Ransomware;</li>
+          <li>Phishing;</li>
+          <li>Credential theft;</li>
+          <li>SIM swap attacks;</li>
+          <li>Account compromise;</li>
+          <li>Social engineering;</li>
+          <li>Unauthorized access;</li>
+          <li>Cyber extortion.</li>
+        </ul>
+        <p>Users acknowledge that digital assets may be permanently lost due to cybersecurity incidents, compromised credentials, technological failures, or unauthorized access.</p>
+        <p>Users bear sole responsibility for:</p>
+        <ul class="tl">
+          <li>Protecting authentication credentials;</li>
+          <li>Maintaining secure devices;</li>
+          <li>Protecting wallet information;</li>
+          <li>Implementing cybersecurity best practices.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>8.5 Regulatory and Legal Risks</h3>
+        <p>Cryptocurrency regulation remains uncertain and may evolve rapidly across jurisdictions.</p>
+        <p>Regulatory actions may impact:</p>
+        <ul class="tl">
+          <li>Asset availability;</li>
+          <li>Transaction legality;</li>
+          <li>Market access;</li>
+          <li>Service functionality;</li>
+          <li>Platform operations;</li>
+          <li>Tax obligations;</li>
+          <li>User eligibility.</li>
+        </ul>
+        <p>Governments or regulators may impose restrictions, prohibitions, reporting requirements, licensing obligations, sanctions, or enforcement actions affecting digital asset activities.</p>
+        <p>Themegatrader does not guarantee continued availability of any digital asset, blockchain network, trading functionality, or Service.</p>
+      </div>
+
+      <div class="sub">
+        <h3>8.6 Third-Party and Infrastructure Risks</h3>
+        <p>Themegatrader relies upon third-party systems, providers, telecommunications infrastructure, payment processors, blockchain networks, liquidity providers, cloud services, and financial institutions.</p>
+        <p>Users acknowledge risks associated with:</p>
+        <ul class="tl">
+          <li>Third-party service interruptions;</li>
+          <li>Banking disruptions;</li>
+          <li>Telecom outages;</li>
+          <li>Infrastructure failures;</li>
+          <li>Payment processor delays;</li>
+          <li>API failures;</li>
+          <li>Cloud service disruptions.</li>
+        </ul>
+        <p>Themegatrader shall not be liable for losses caused by failures outside its reasonable control.</p>
+      </div>
+
+      <div class="sub">
+        <h3>8.7 No Financial or Investment Advice</h3>
+        <p>Themegatrader does not provide:</p>
+        <ul class="tl">
+          <li>Financial advice;</li>
+          <li>Investment advice;</li>
+          <li>Tax advice;</li>
+          <li>Legal advice;</li>
+          <li>Trading recommendations;</li>
+          <li>Fiduciary services.</li>
+        </ul>
+        <p>Any information, educational content, analytics, market commentary, notifications, or communications provided through the Platform are for informational purposes only.</p>
+        <p>Users remain solely responsible for:</p>
+        <ul class="tl">
+          <li>Trading decisions;</li>
+          <li>Investment decisions;</li>
+          <li>Financial risk assessment;</li>
+          <li>Independent professional consultation;</li>
+          <li>Digital asset management.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>8.8 User Assumption of Risk</h3>
+        <p>By using Themegatrader Services, users expressly acknowledge and accept all risks associated with cryptocurrency activities, telecommunications integrations, blockchain systems, digital asset transactions, and internet-based financial technologies.</p>
+        <p>Users agree that they bear sole responsibility for:</p>
+        <ul class="tl">
+          <li>Asset management;</li>
+          <li>Transaction decisions;</li>
+          <li>Wallet security;</li>
+          <li>Risk evaluation;</li>
+          <li>Financial losses arising from digital asset activities.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         9. FEES, CHARGES, AND PAYMENTS
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s9">
+      <div class="sec-head">
+        <span class="sec-num">9</span>
+        <h2>FEES, CHARGES, AND PAYMENTS</h2>
+      </div>
+
+      <p>Users agree to pay all fees, charges, commissions, taxes, levies, telecommunications charges, processing costs, and other applicable amounts associated with the use of Themegatrader Services.</p>
+      <p>By accessing or using Themegatrader Services, users authorize Themegatrader to deduct, collect, process, retain, or charge applicable fees from transactions, balances, linked payment methods, wallets, telecommunications purchases, or other available payment sources.</p>
+
+      <div class="sub">
+        <h3>9.1 Applicable Fees and Charges</h3>
+        <p>Themegatrader may apply fees relating to:</p>
+        <ul class="tl">
+          <li>Trading activities;</li>
+          <li>Cryptocurrency exchange transactions;</li>
+          <li>Fiat-to-crypto transactions;</li>
+          <li>Crypto-to-fiat transactions;</li>
+          <li>Deposits and withdrawals;</li>
+          <li>Wallet transfers;</li>
+          <li>Telecommunications services;</li>
+          <li>Airtime purchases;</li>
+          <li>Data subscriptions;</li>
+          <li>Utility payments;</li>
+          <li>Cable television subscriptions;</li>
+          <li>API access and usage;</li>
+          <li>Premium features or services;</li>
+          <li>Currency conversion;</li>
+          <li>Payment processing;</li>
+          <li>Settlement services;</li>
+          <li>Compliance reviews where legally permissible.</li>
+        </ul>
+        <p>Fees may include:</p>
+        <ul class="tl">
+          <li>Fixed charges;</li>
+          <li>Percentage-based commissions;</li>
+          <li>Network fees;</li>
+          <li>Blockchain gas fees;</li>
+          <li>Third-party provider costs;</li>
+          <li>Telecommunications processing charges;</li>
+          <li>Government-imposed levies or taxes.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>9.2 Pricing and Fee Adjustments</h3>
+        <p>Themegatrader reserves the right, at its sole discretion, to:</p>
+        <ul class="tl">
+          <li>Introduce new fees;</li>
+          <li>Modify existing fees;</li>
+          <li>Adjust pricing structures;</li>
+          <li>Revise commissions or processing charges;</li>
+          <li>Update transaction thresholds;</li>
+          <li>Implement service-specific pricing.</li>
+        </ul>
+        <p>Pricing adjustments may result from:</p>
+        <ul class="tl">
+          <li>Regulatory changes;</li>
+          <li>Operational costs;</li>
+          <li>Market conditions;</li>
+          <li>Telecommunications provider adjustments;</li>
+          <li>Blockchain network conditions;</li>
+          <li>Third-party processing costs;</li>
+          <li>Risk management requirements.</li>
+        </ul>
+        <p>Updated fees may be published through the Themegatrader Platform, website, mobile application, APIs, notifications, or other communication channels.</p>
+        <p>Continued use of Services following fee updates constitutes acceptance of revised pricing.</p>
+      </div>
+
+      <div class="sub">
+        <h3>9.3 Taxes and Governmental Charges</h3>
+        <p>Users remain solely responsible for:</p>
+        <ul class="tl">
+          <li>Taxes;</li>
+          <li>Duties;</li>
+          <li>Levies;</li>
+          <li>Regulatory charges;</li>
+          <li>Withholding obligations;</li>
+          <li>Reporting obligations;</li>
+          <li>Governmental assessments.</li>
+        </ul>
+        <p>Themegatrader may deduct, collect, withhold, or report taxes where required by applicable law, regulation, governmental authority, or tax obligations.</p>
+        <p>Users acknowledge responsibility for determining and complying with their own tax obligations relating to cryptocurrency transactions, telecommunications purchases, digital asset holdings, or platform usage.</p>
+      </div>
+
+      <div class="sub">
+        <h3>9.4 Payment Authorization</h3>
+        <p>Users authorize Themegatrader to:</p>
+        <ul class="tl">
+          <li>Process payments;</li>
+          <li>Debit balances;</li>
+          <li>Deduct applicable charges;</li>
+          <li>Reverse erroneous credits where legally permissible;</li>
+          <li>Recover outstanding fees;</li>
+          <li>Offset liabilities against available balances where permitted by law.</li>
+        </ul>
+        <p>Users agree to maintain sufficient balances or valid payment methods for applicable charges.</p>
+      </div>
+
+      <div class="sub">
+        <h3>9.5 Failed Payments and Outstanding Obligations</h3>
+        <p>Where payments fail, are reversed, disputed, declined, or become outstanding, Themegatrader reserves the right to:</p>
+        <ul class="tl">
+          <li>Suspend Services;</li>
+          <li>Restrict account functionality;</li>
+          <li>Delay transactions;</li>
+          <li>Freeze withdrawals;</li>
+          <li>Recover unpaid amounts;</li>
+          <li>Offset balances;</li>
+          <li>Terminate accounts;</li>
+          <li>Escalate matters for collections or legal recovery where appropriate.</li>
+        </ul>
+        <p>Users remain liable for all unpaid obligations, fees, charges, and associated costs incurred through their account.</p>
+      </div>
+
+      <div class="sub">
+        <h3>9.6 Third-Party Charges</h3>
+        <p>Users acknowledge that third-party providers including:</p>
+        <ul class="tl">
+          <li>Blockchain networks;</li>
+          <li>Telecommunications operators;</li>
+          <li>Banks;</li>
+          <li>Payment processors;</li>
+          <li>Card issuers;</li>
+          <li>Financial institutions;</li>
+          <li>Internet service providers</li>
+        </ul>
+        <p>may independently impose additional fees or charges outside Themegatrader's control.</p>
+        <p>Themegatrader shall not be responsible for third-party charges imposed by external providers.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         10. SECURITY AND ACCOUNT PROTECTION
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s10">
+      <div class="sec-head">
+        <span class="sec-num">10</span>
+        <h2>SECURITY AND ACCOUNT PROTECTION</h2>
+      </div>
+
+      <p>Themega Global Limited ("Themegatrader") implements commercially reasonable administrative, technical, operational, organizational, and cybersecurity safeguards designed to protect the integrity, confidentiality, availability, and security of the Themegatrader Platform and user information.</p>
+      <p>Users acknowledge that no internet-based system, blockchain network, telecommunications infrastructure, or digital platform can guarantee absolute security, uninterrupted availability, or complete immunity from cybersecurity threats.</p>
+
+      <div class="sub">
+        <h3>10.1 Security Safeguards Implemented by Themegatrader</h3>
+        <p>Themegatrader may implement safeguards including:</p>
+        <ul class="tl">
+          <li>Encryption technologies;</li>
+          <li>Authentication controls;</li>
+          <li>Multi-factor authentication systems;</li>
+          <li>Fraud monitoring systems;</li>
+          <li>Role-Based Access Controls (RBAC);</li>
+          <li>Access restriction mechanisms;</li>
+          <li>Security logging and monitoring;</li>
+          <li>Threat detection systems;</li>
+          <li>Intrusion detection technologies;</li>
+          <li>Vulnerability assessments;</li>
+          <li>Penetration testing;</li>
+          <li>API security controls;</li>
+          <li>Network segmentation;</li>
+          <li>Firewall protections;</li>
+          <li>Security audits;</li>
+          <li>Incident response procedures;</li>
+          <li>Cybersecurity monitoring systems.</li>
+        </ul>
+        <p>Themegatrader continuously reviews and enhances security measures in response to evolving cybersecurity threats, technological developments, operational risks, and regulatory expectations.</p>
+      </div>
+
+      <div class="sub">
+        <h3>10.2 User Security Responsibilities</h3>
+        <p>Users remain solely responsible for maintaining adequate security over their accounts, credentials, devices, wallets, telecommunications access, and authentication systems.</p>
+        <p>Users are responsible for:</p>
+        <ul class="tl">
+          <li>Password security;</li>
+          <li>Multi-factor authentication protections;</li>
+          <li>Device protection;</li>
+          <li>Credential confidentiality;</li>
+          <li>Safe internet practices;</li>
+          <li>Wallet security;</li>
+          <li>API key protection;</li>
+          <li>Recovery method security;</li>
+          <li>Monitoring account activity;</li>
+          <li>Protecting authentication devices.</li>
+        </ul>
+        <p>Users agree to:</p>
+        <ul class="tl">
+          <li>Use strong and unique passwords;</li>
+          <li>Avoid credential sharing;</li>
+          <li>Secure personal devices;</li>
+          <li>Enable security features where available;</li>
+          <li>Promptly report suspicious activity or unauthorized access;</li>
+          <li>Maintain updated device software and security protections.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>10.3 Unauthorized Access and Security Incidents</h3>
+        <p>Users must notify Themegatrader immediately upon becoming aware of:</p>
+        <ul class="tl">
+          <li>Unauthorized account access;</li>
+          <li>Credential compromise;</li>
+          <li>Phishing attempts;</li>
+          <li>Fraudulent activity;</li>
+          <li>Device theft;</li>
+          <li>Suspicious transactions;</li>
+          <li>Cybersecurity incidents;</li>
+          <li>API compromise;</li>
+          <li>Wallet compromise.</li>
+        </ul>
+        <p>Themegatrader may take protective action including:</p>
+        <ul class="tl">
+          <li>Restricting account access;</li>
+          <li>Delaying transactions;</li>
+          <li>Freezing withdrawals;</li>
+          <li>Conducting investigations;</li>
+          <li>Requiring re-verification;</li>
+          <li>Resetting authentication credentials.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>10.4 No Guarantee of Absolute Security</h3>
+        <p>Despite commercially reasonable safeguards, users acknowledge that risks inherent to online systems may include:</p>
+        <ul class="tl">
+          <li>Cyberattacks;</li>
+          <li>Malware infections;</li>
+          <li>Distributed denial-of-service attacks;</li>
+          <li>Blockchain vulnerabilities;</li>
+          <li>Telecommunications disruptions;</li>
+          <li>Human error;</li>
+          <li>Third-party system compromise;</li>
+          <li>Phishing or social engineering attacks;</li>
+          <li>Credential theft.</li>
+        </ul>
+        <p>Themegatrader does not warrant that Services will always remain free from vulnerabilities, unauthorized access, cybersecurity incidents, or technical disruptions.</p>
+      </div>
+
+      <div class="sub">
+        <h3>10.5 Limitation of Liability Relating to Security</h3>
+        <p>To the fullest extent permitted by law, Themegatrader shall not be liable for losses, damages, unauthorized transactions, delays, disruptions, or compromises resulting from:</p>
+        <ul class="tl">
+          <li>User negligence;</li>
+          <li>Weak password practices;</li>
+          <li>Credential sharing;</li>
+          <li>Failure to secure devices;</li>
+          <li>Phishing attacks;</li>
+          <li>Malware infections;</li>
+          <li>Unauthorized third-party access;</li>
+          <li>SIM swap attacks;</li>
+          <li>Compromised email accounts;</li>
+          <li>External cybersecurity incidents beyond Themegatrader's reasonable control.</li>
+        </ul>
+        <p>Users acknowledge that they bear primary responsibility for protecting their authentication credentials, personal devices, wallets, telecommunications access, and account security.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         11. PRIVACY AND DATA PROTECTION
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s11">
+      <div class="sec-head">
+        <span class="sec-num">11</span>
+        <h2>PRIVACY AND DATA PROTECTION</h2>
+      </div>
+
+      <p>Themega Global Limited ("Themegatrader") recognizes the importance of privacy, confidentiality, data protection, cybersecurity, and responsible handling of personal information.</p>
+      <p>By accessing or using Themegatrader Services, users acknowledge and agree that personal information may be collected, processed, analyzed, transferred, stored, retained, disclosed, monitored, and otherwise handled in accordance with applicable legal obligations, operational requirements, fraud prevention measures, and Themegatrader's Privacy Policy.</p>
+      <p>Use of Themegatrader Services is subject to Themegatrader's Privacy Policy, which forms an integral part of these Terms and Conditions and is incorporated by reference.</p>
+
+      <div class="sub">
+        <h3>11.1 Collection and Processing of Information</h3>
+        <p>Users acknowledge that Themegatrader may collect, process, retain, and use personal information for lawful, legitimate, regulatory, security, operational, contractual, telecommunications, fraud prevention, and compliance purposes.</p>
+        <p>Information processing may occur for purposes including:</p>
+        <ul class="tl">
+          <li>Identity verification;</li>
+          <li>KYC and AML compliance;</li>
+          <li>Fraud prevention;</li>
+          <li>Telecommunications service delivery;</li>
+          <li>Platform security;</li>
+          <li>Transaction execution;</li>
+          <li>Customer support;</li>
+          <li>Compliance investigations;</li>
+          <li>Security monitoring;</li>
+          <li>Risk assessment;</li>
+          <li>Service optimization;</li>
+          <li>Regulatory reporting;</li>
+          <li>Account management;</li>
+          <li>Dispute resolution.</li>
+        </ul>
+        <p>Themegatrader may process information including:</p>
+        <ul class="tl">
+          <li>Identity information;</li>
+          <li>Contact information;</li>
+          <li>Financial information;</li>
+          <li>Transaction records;</li>
+          <li>Wallet information;</li>
+          <li>Device information;</li>
+          <li>Authentication information;</li>
+          <li>Telecommunications service information;</li>
+          <li>Compliance documentation;</li>
+          <li>Usage and behavioral information.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>11.2 Legal and Regulatory Compliance</h3>
+        <p>Users acknowledge that Themegatrader may collect, process, disclose, transfer, preserve, or report information where necessary to comply with:</p>
+        <ul class="tl">
+          <li>Applicable laws;</li>
+          <li>Regulatory requirements;</li>
+          <li>Court orders;</li>
+          <li>Government requests;</li>
+          <li>AML/KYC obligations;</li>
+          <li>Counter-terrorism financing requirements;</li>
+          <li>Fraud prevention obligations;</li>
+          <li>Tax reporting requirements;</li>
+          <li>Sanctions screening requirements;</li>
+          <li>Data protection legislation.</li>
+        </ul>
+        <p>Themegatrader may preserve records, logs, communications, verification documents, transaction histories, telecommunications records, compliance reports, and investigative materials where reasonably necessary or legally required.</p>
+      </div>
+
+      <div class="sub">
+        <h3>11.3 Cross-Border Transfers and Storage</h3>
+        <p>Users acknowledge that personal information may be transferred to, processed in, accessed from, or stored outside their country of residence where operationally necessary.</p>
+        <p>Where cross-border transfers occur, Themegatrader may implement:</p>
+        <ul class="tl">
+          <li>Data transfer safeguards;</li>
+          <li>Access restrictions;</li>
+          <li>Encryption measures;</li>
+          <li>Contractual protections;</li>
+          <li>Security protocols;</li>
+          <li>NDPA-compliant transfer mechanisms.</li>
+        </ul>
+        <p>Themegatrader shall implement commercially reasonable measures to ensure adequate protection of personal information consistent with applicable legal requirements.</p>
+      </div>
+
+      <div class="sub">
+        <h3>11.4 User Consent and Privacy Obligations</h3>
+        <p>By using Themegatrader Services, users consent to the processing of information in accordance with:</p>
+        <ul class="tl">
+          <li>Themegatrader's Privacy Policy;</li>
+          <li>Applicable laws;</li>
+          <li>Regulatory requirements;</li>
+          <li>AML/KYC obligations;</li>
+          <li>Telecommunications requirements;</li>
+          <li>Fraud prevention procedures.</li>
+        </ul>
+        <p>Users agree to provide accurate, lawful, complete, and updated information and acknowledge that inaccurate or misleading information may result in account restrictions, delays, compliance reviews, or termination of Services.</p>
+      </div>
+
+      <div class="sub">
+        <h3>11.5 Privacy Rights</h3>
+        <p>Subject to applicable law, users may exercise rights relating to:</p>
+        <ul class="tl">
+          <li>Access to personal information;</li>
+          <li>Correction of inaccurate information;</li>
+          <li>Deletion requests;</li>
+          <li>Restriction of processing;</li>
+          <li>Objection to certain processing activities;</li>
+          <li>Withdrawal of consent where applicable;</li>
+          <li>Data portability;</li>
+          <li>Complaints to supervisory authorities.</li>
+        </ul>
+        <p>Users may submit privacy-related requests in accordance with Themegatrader's Privacy Policy and applicable law.</p>
+        <p>Themegatrader reserves the right to verify identity before processing privacy-related requests.</p>
+        <p>Nothing in this Section limits rights available to users under applicable data protection laws.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         12. SUSPENSION, RESTRICTION, AND TERMINATION
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s12">
+      <div class="sec-head">
+        <span class="sec-num">12</span>
+        <h2>SUSPENSION, RESTRICTION, AND TERMINATION</h2>
+      </div>
+
+      <p>Themegatrader reserves the right, at its sole discretion and without prior notice where legally permissible, to suspend, freeze, restrict, limit, investigate, review, or terminate user accounts, transactions, platform access, APIs, telecommunications functionality, wallet access, withdrawals, or Services where reasonably necessary for security, operational, legal, compliance, fraud prevention, or regulatory purposes.</p>
+
+      <div class="sub">
+        <h3>12.1 Grounds for Suspension or Restriction</h3>
+        <p>Themegatrader may suspend, restrict, freeze, delay, limit, or terminate access where:</p>
+        <ul class="tl">
+          <li>Fraud indicators are identified;</li>
+          <li>AML/KYC obligations are not fulfilled;</li>
+          <li>Suspicious activity is detected;</li>
+          <li>Regulatory or legal concerns arise;</li>
+          <li>Security threats are identified;</li>
+          <li>Account compromise is suspected;</li>
+          <li>Sanctions screening concerns arise;</li>
+          <li>Unauthorized activity occurs;</li>
+          <li>False, inaccurate, incomplete, misleading, or fraudulent information is provided;</li>
+          <li>Violations of these Terms occur;</li>
+          <li>Cybersecurity risks are identified;</li>
+          <li>Telecommunications abuse is suspected;</li>
+          <li>High-risk behavior is detected;</li>
+          <li>Legal investigations require action;</li>
+          <li>Court orders, governmental requests, or regulatory directives require intervention.</li>
+        </ul>
+        <p>Themegatrader reserves the right to take preventative action to reduce fraud, cybersecurity, telecommunications, financial crime, legal, operational, or reputational risks.</p>
+      </div>
+
+      <div class="sub">
+        <h3>12.2 Restrictions and Protective Measures</h3>
+        <p>Where necessary, Themegatrader may:</p>
+        <ul class="tl">
+          <li>Freeze withdrawals;</li>
+          <li>Restrict account functionality;</li>
+          <li>Delay processing;</li>
+          <li>Disable APIs;</li>
+          <li>Suspend telecommunications services;</li>
+          <li>Block transactions;</li>
+          <li>Limit account access;</li>
+          <li>Request additional documentation;</li>
+          <li>Require renewed verification;</li>
+          <li>Freeze balances where legally permissible;</li>
+          <li>Conduct internal investigations.</li>
+        </ul>
+        <p>Restrictions may be temporary or permanent depending upon the severity of the issue, applicable law, risk exposure, or regulatory obligations.</p>
+      </div>
+
+      <div class="sub">
+        <h3>12.3 Termination of Accounts</h3>
+        <p>Themegatrader may terminate accounts where:</p>
+        <ul class="tl">
+          <li>Serious violations occur;</li>
+          <li>Fraud or unlawful conduct is identified;</li>
+          <li>Compliance obligations are not satisfied;</li>
+          <li>Continued access creates unacceptable legal, regulatory, cybersecurity, financial, or operational risks;</li>
+          <li>Users misuse Services;</li>
+          <li>Users breach these Terms.</li>
+        </ul>
+        <p>Termination may result in:</p>
+        <ul class="tl">
+          <li>Permanent suspension of access;</li>
+          <li>Account closure;</li>
+          <li>Service discontinuation;</li>
+          <li>Withdrawal delays;</li>
+          <li>Compliance reviews;</li>
+          <li>Retention of records for legal or regulatory purposes.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>12.4 Effect of Suspension or Termination</h3>
+        <p>Upon suspension, restriction, or termination:</p>
+        <ul class="tl">
+          <li>Access to Services may be denied;</li>
+          <li>Pending transactions may be delayed, canceled, or reviewed;</li>
+          <li>Telecommunications functionality may be restricted;</li>
+          <li>Account balances may remain subject to legal or compliance review;</li>
+          <li>Records may be preserved;</li>
+          <li>Compliance investigations may continue.</li>
+        </ul>
+        <p>Themegatrader shall not be liable for losses arising from lawful account restrictions, suspensions, delays, freezes, or terminations carried out in good faith or pursuant to legal obligations.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         13. LIMITATION OF LIABILITY
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s13">
+      <div class="sec-head">
+        <span class="sec-num">13</span>
+        <h2>LIMITATION OF LIABILITY</h2>
+      </div>
+
+      <p>To the fullest extent permitted by applicable law, Themega Global Limited ("Themegatrader"), its affiliates, subsidiaries, officers, directors, shareholders, employees, contractors, service providers, licensors, agents, and representatives shall not be liable for any direct, indirect, incidental, consequential, special, punitive, exemplary, or economic damages arising from or related to use of the Themegatrader Platform or Services.</p>
+      <p>Without limitation, Themegatrader shall not be liable for:</p>
+      <ul class="tl">
+        <li>Indirect damages;</li>
+        <li>Consequential losses;</li>
+        <li>Lost profits;</li>
+        <li>Business interruption;</li>
+        <li>Data loss;</li>
+        <li>Cryptocurrency volatility losses;</li>
+        <li>Trading losses;</li>
+        <li>Loss of digital assets caused by third-party compromise;</li>
+        <li>Blockchain failures or congestion;</li>
+        <li>Smart contract failures;</li>
+        <li>Telecommunications outages;</li>
+        <li>Utility service disruptions;</li>
+        <li>Payment processor failures;</li>
+        <li>Banking disruptions;</li>
+        <li>API interruptions;</li>
+        <li>Third-party system failures;</li>
+        <li>Unauthorized access caused by user negligence;</li>
+        <li>Malware, phishing, ransomware, SIM swaps, credential theft, or cyberattacks;</li>
+        <li>Delayed, failed, or interrupted transactions;</li>
+        <li>Service unavailability;</li>
+        <li>Regulatory restrictions;</li>
+        <li>Errors outside Themegatrader's reasonable control.</li>
+      </ul>
+      <p>Themegatrader makes no warranty, representation, or guarantee that:</p>
+      <ul class="tl">
+        <li>Services will be uninterrupted;</li>
+        <li>Services will be error-free;</li>
+        <li>Services will always be secure;</li>
+        <li>Transactions will always execute successfully;</li>
+        <li>Platform availability will remain continuous;</li>
+        <li>Cryptocurrency markets will remain stable.</li>
+      </ul>
+      <p>All Services are provided on an "as is," "as available," and "with all faults" basis to the fullest extent permitted by law.</p>
+      <p>Nothing in these Terms excludes liability where exclusion is prohibited under applicable law.</p>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         14. INDEMNITY
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s14">
+      <div class="sec-head">
+        <span class="sec-num">14</span>
+        <h2>INDEMNITY</h2>
+      </div>
+
+      <p>Users agree to indemnify, defend, and hold harmless Themega Global Limited ("Themegatrader"), its affiliates, subsidiaries, officers, directors, shareholders, employees, contractors, consultants, agents, licensors, and representatives from and against any and all claims, proceedings, damages, liabilities, losses, penalties, regulatory actions, investigations, judgments, settlements, costs, and expenses (including reasonable legal fees) arising from or relating to:</p>
+      <ul class="tl">
+        <li>Misuse of Services;</li>
+        <li>Violation of these Terms;</li>
+        <li>Fraudulent conduct;</li>
+        <li>Legal or regulatory violations;</li>
+        <li>Unauthorized access caused by user negligence;</li>
+        <li>Breach of applicable law;</li>
+        <li>Misrepresentation;</li>
+        <li>Telecommunications misuse;</li>
+        <li>Violation of intellectual property rights;</li>
+        <li>User-generated activities conducted through accounts;</li>
+        <li>Failure to maintain credential security;</li>
+        <li>Claims brought by third parties resulting from user conduct.</li>
+      </ul>
+      <p>Users agree to cooperate fully in the defense of any matter subject to indemnification.</p>
+      <p>Themegatrader reserves the right to assume exclusive control of legal defense at the user's expense where legally permissible.</p>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         15. GOVERNING LAW AND JURISDICTION
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s15">
+      <div class="sec-head">
+        <span class="sec-num">15</span>
+        <h2>GOVERNING LAW AND JURISDICTION</h2>
+      </div>
+
+      <p>These Terms and Conditions shall be governed by, interpreted, and construed in accordance with the laws of the Federal Republic of Nigeria without regard to conflict of law principles.</p>
+      <p>Themegatrader operates in compliance with:</p>
+      <ul class="tl">
+        <li>The Nigeria Data Protection Act, 2023 (NDPA);</li>
+        <li>Applicable Anti-Money Laundering and Counter-Terrorism Financing laws;</li>
+        <li>Consumer protection requirements;</li>
+        <li>Telecommunications-related regulatory obligations;</li>
+        <li>Financial crime prevention regulations;</li>
+        <li>Applicable directives issued by competent authorities.</li>
+      </ul>
+      <p>Any dispute, claim, controversy, enforcement action, proceeding, or legal matter arising out of or relating to these Terms, Themegatrader Services, user accounts, digital asset transactions, telecommunications services, privacy matters, or platform usage shall, subject to applicable law, fall within the exclusive jurisdiction of competent courts located within the Federal Republic of Nigeria.</p>
+      <p>Where users reside outside Nigeria, mandatory legal protections available under applicable law may continue to apply to the extent legally required.</p>
+      <p>Users agree to submit to the jurisdiction of competent Nigerian courts and waive objections relating to venue or jurisdiction except where such waiver is prohibited by law.</p>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         16. SUSPENSIONS, RESTRICTIONS, FREEZING, AND ACCOUNT TERMINATION
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s16">
+      <div class="sec-head">
+        <span class="sec-num">16</span>
+        <h2>SUSPENSIONS, RESTRICTIONS, FREEZING, AND ACCOUNT TERMINATION</h2>
+      </div>
+
+      <p>Themegatrader reserves the right, at its sole discretion and to the fullest extent permitted by applicable law, to suspend, restrict, limit, freeze, deactivate, or terminate access to user accounts, Services, transactions, wallets, balances, telecommunications functionality, APIs, or platform access where reasonably necessary for legal, operational, regulatory, compliance, fraud prevention, cybersecurity, risk management, or business continuity purposes.</p>
+      <p>Themegatrader may implement temporary or permanent restrictions where:</p>
+      <ul class="tl">
+        <li>Fraud indicators or suspicious activity are identified;</li>
+        <li>AML/KYC verification requirements remain incomplete;</li>
+        <li>False, inaccurate, misleading, or fraudulent information is submitted;</li>
+        <li>Sanctions, AML, terrorism financing, or compliance concerns arise;</li>
+        <li>Unauthorized access, account compromise, or cybersecurity threats are suspected;</li>
+        <li>Users violate these Terms, applicable law, or regulatory obligations;</li>
+        <li>Court orders, subpoenas, governmental requests, or regulatory directives are received;</li>
+        <li>Excessive chargebacks, abuse, fraud, or platform misuse occur;</li>
+        <li>Security incidents, suspicious login activity, or abnormal transaction behavior are detected.</li>
+      </ul>
+      <p>Themegatrader may, without prior notice:</p>
+      <ul class="tl">
+        <li>Restrict withdrawals or transfers;</li>
+        <li>Freeze balances or pending transactions;</li>
+        <li>Suspend trading functionality;</li>
+        <li>Block access to telecommunications services;</li>
+        <li>Disable APIs or integrations;</li>
+        <li>Require enhanced due diligence or identity verification;</li>
+        <li>Request additional compliance documentation;</li>
+        <li>Terminate accounts permanently.</li>
+      </ul>
+      <p>Where operationally feasible and legally permissible, Themegatrader may notify users of restrictions; however, Themegatrader reserves the right to withhold notice where disclosure may:</p>
+      <ul class="tl">
+        <li>Interfere with investigations;</li>
+        <li>Compromise fraud prevention efforts;</li>
+        <li>Violate legal obligations;</li>
+        <li>Increase cybersecurity risks;</li>
+        <li>Facilitate unlawful conduct.</li>
+      </ul>
+      <p>Users remain responsible for obligations incurred prior to suspension or termination.</p>
+      <p>Themegatrader shall not be liable for losses arising from account restrictions, freezes, delays, suspensions, or terminations carried out in good faith for compliance, security, fraud prevention, legal, or operational purposes.</p>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         17. REFUNDS, REVERSALS, FAILED TRANSACTIONS, AND CHARGEBACKS
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s17">
+      <div class="sec-head">
+        <span class="sec-num">17</span>
+        <h2>REFUNDS, REVERSALS, FAILED TRANSACTIONS, AND CHARGEBACKS</h2>
+      </div>
+
+      <p>Users acknowledge that cryptocurrency transactions, blockchain settlements, telecommunications services and certain digital transactions may be irreversible.</p>
+      <p>Refund eligibility shall depend on the nature of the Service, applicable law, transaction status, technical feasibility, compliance requirements, third-party provider obligations, and operational considerations.</p>
+
+      <div class="sub">
+        <h3>A. Cryptocurrency Transactions</h3>
+        <p>Unless otherwise required by law, cryptocurrency transactions are generally:</p>
+        <ul class="tl">
+          <li>Final;</li>
+          <li>Irreversible;</li>
+          <li>Non-refundable;</li>
+          <li>Non-cancellable after blockchain confirmation.</li>
+        </ul>
+        <p>Themegatrader shall not be liable for losses resulting from:</p>
+        <ul class="tl">
+          <li>Incorrect wallet addresses;</li>
+          <li>Blockchain congestion or failures;</li>
+          <li>User error;</li>
+          <li>Third-party wallet issues;</li>
+          <li>Incorrect transaction instructions;</li>
+          <li>Volatility-related losses.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>B. Fiat Payments and Deposits</h3>
+        <p>Refunds relating to fiat transactions may be considered where:</p>
+        <ul class="tl">
+          <li>Duplicate payments occur;</li>
+          <li>Failed settlement occurs;</li>
+          <li>Unauthorized payment is verified;</li>
+          <li>Technical system errors are confirmed;</li>
+          <li>Regulatory or operational review permits reversal.</li>
+        </ul>
+        <p>Themegatrader reserves the right to conduct investigations before approving any refund or reversal.</p>
+      </div>
+
+      <div class="sub">
+        <h3>C. Telecommunications Services</h3>
+        <p>Airtime purchases, mobile data, utility payments, electricity payments, cable subscriptions, and digital service purchases may be non-refundable once processed or delivered.</p>
+        <p>Refunds may only be considered where:</p>
+        <ul class="tl">
+          <li>Technical failures occur;</li>
+          <li>Transactions fail but payment succeeds;</li>
+          <li>Duplicate processing occurs;</li>
+          <li>Third-party provider errors are confirmed.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>D. Failed Transactions</h3>
+        <p>Where a transaction fails, Themegatrader may:</p>
+        <ul class="tl">
+          <li>Reverse the transaction;</li>
+          <li>Retry processing;</li>
+          <li>Credit balances;</li>
+          <li>Escalate issues to third-party partners;</li>
+          <li>Conduct compliance reviews before release of funds.</li>
+        </ul>
+        <p>Resolution timelines may vary depending on banking systems, blockchain networks, telecom operators, compliance obligations, or third-party service providers.</p>
+      </div>
+
+      <div class="sub">
+        <h3>E. Chargebacks and Payment Disputes</h3>
+        <p>Users agree not to initiate wrongful or fraudulent chargebacks.</p>
+        <p>Where chargebacks occur, Themegatrader may:</p>
+        <ul class="tl">
+          <li>Freeze accounts;</li>
+          <li>Restrict withdrawals;</li>
+          <li>Suspend Services;</li>
+          <li>Recover losses, penalties, or fees;</li>
+          <li>Report suspicious activity to relevant authorities.</li>
+        </ul>
+        <p>Themegatrader reserves the right to investigate payment disputes and may request supporting documentation.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         18. AUTOMATED MONITORING, FRAUD PREVENTION, AND COMPLIANCE REVIEWS
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s18">
+      <div class="sec-head">
+        <span class="sec-num">18</span>
+        <h2>AUTOMATED MONITORING, FRAUD PREVENTION, AND COMPLIANCE REVIEWS</h2>
+      </div>
+
+      <p>Themegatrader may implement automated systems, artificial intelligence tools, machine learning technologies, blockchain analytics, behavioral analytics, cybersecurity systems, transaction monitoring tools, fraud prevention systems, and risk-scoring technologies to:</p>
+      <ul class="tl">
+        <li>Detect suspicious activity;</li>
+        <li>Prevent fraud and scams;</li>
+        <li>Monitor compliance risks;</li>
+        <li>Detect money laundering risks;</li>
+        <li>Prevent sanctions violations;</li>
+        <li>Identify cybersecurity threats;</li>
+        <li>Monitor transaction behavior;</li>
+        <li>Detect account compromise;</li>
+        <li>Assess abnormal platform activity.</li>
+      </ul>
+      <p>Automated systems may temporarily:</p>
+      <ul class="tl">
+        <li>Restrict transactions;</li>
+        <li>Delay withdrawals;</li>
+        <li>Freeze accounts;</li>
+        <li>Escalate transactions for manual review;</li>
+        <li>Trigger enhanced due diligence processes.</li>
+      </ul>
+      <p>Compliance reviews may occur:</p>
+      <ul class="tl">
+        <li>Periodically;</li>
+        <li>Continuously;</li>
+        <li>Upon suspicious activity detection;</li>
+        <li>During onboarding;</li>
+        <li>During regulatory investigations.</li>
+      </ul>
+      <p>Users acknowledge that Themegatrader may request:</p>
+      <ul class="tl">
+        <li>Additional documentation;</li>
+        <li>Identity verification;</li>
+        <li>Proof of funds;</li>
+        <li>Source of wealth information;</li>
+        <li>Enhanced compliance documentation.</li>
+      </ul>
+      <p>Themegatrader shall implement commercially reasonable safeguards designed to promote fairness, proportionality, accountability, and lawful processing.</p>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         19. RISK DISCLOSURE AND NO FINANCIAL ADVICE
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s19">
+      <div class="sec-head">
+        <span class="sec-num">19</span>
+        <h2>RISK DISCLOSURE AND NO FINANCIAL ADVICE</h2>
+      </div>
+
+      <p>Users acknowledge that cryptocurrency markets, digital assets, telecommunications systems, digital payments, and online financial services involve inherent risks.</p>
+      <p>Risks may include:</p>
+      <ul class="tl">
+        <li>Market volatility;</li>
+        <li>Liquidity risks;</li>
+        <li>Cybersecurity threats;</li>
+        <li>Regulatory uncertainty;</li>
+        <li>Smart contract failures;</li>
+        <li>Blockchain delays;</li>
+        <li>Network congestion;</li>
+        <li>Service disruptions;</li>
+        <li>Fraud risks;</li>
+        <li>Third-party failures.</li>
+      </ul>
+      <p>Themegatrader does not provide:</p>
+      <ul class="tl">
+        <li>Financial advice;</li>
+        <li>Investment advice;</li>
+        <li>Tax advice;</li>
+        <li>Legal advice;</li>
+        <li>Trading recommendations;</li>
+        <li>Fiduciary services.</li>
+      </ul>
+      <p>Any information provided through Themegatrader, including educational content, analytics, notifications, market information, promotional materials, or support communications, is for informational purposes only.</p>
+      <p>Users are solely responsible for:</p>
+      <ul class="tl">
+        <li>Investment decisions;</li>
+        <li>Trading decisions;</li>
+        <li>Financial risk assessment;</li>
+        <li>Independent professional consultation.</li>
+      </ul>
+      <p>Themegatrader makes no guarantee regarding:</p>
+      <ul class="tl">
+        <li>Profitability;</li>
+        <li>Investment outcomes;</li>
+        <li>Market performance;</li>
+        <li>Price movements.</li>
+      </ul>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         20. DISCLAIMER OF WARRANTIES
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s20">
+      <div class="sec-head">
+        <span class="sec-num">20</span>
+        <h2>DISCLAIMER OF WARRANTIES</h2>
+      </div>
+
+      <p>To the fullest extent permitted by applicable law, Themega Global Limited ("Themegatrader") provides all Services, products, features, APIs, telecommunications functionalities, digital asset services, and related offerings on an "AS IS," "AS AVAILABLE," and "WITH ALL FAULTS" basis.</p>
+      <p>By accessing or using Themegatrader Services, users expressly acknowledge and agree that they use the Platform at their own risk.</p>
+
+      <div class="sub">
+        <h3>20.1 Exclusion of Warranties</h3>
+        <p>Themegatrader expressly disclaims all warranties, representations, guarantees, or conditions of any kind, whether express, implied, statutory, or otherwise, including but not limited to warranties relating to:</p>
+        <ul class="tl">
+          <li>Merchantability;</li>
+          <li>Fitness for a particular purpose;</li>
+          <li>Quality of service;</li>
+          <li>Availability or uptime;</li>
+          <li>Accuracy or completeness of information;</li>
+          <li>Reliability of systems or outputs;</li>
+          <li>Non-infringement of third-party rights;</li>
+          <li>Security or immunity from cyber threats;</li>
+          <li>Performance or functionality;</li>
+          <li>Error-free or uninterrupted operation;</li>
+          <li>Compatibility with user devices or third-party systems.</li>
+        </ul>
+        <p>No oral or written information, communication, or advice provided by Themegatrader or its representatives shall create any warranty not expressly stated in these Terms.</p>
+      </div>
+
+      <div class="sub">
+        <h3>20.2 No Guarantee of Service Performance</h3>
+        <p>Themegatrader does not warrant or guarantee that:</p>
+        <ul class="tl">
+          <li>The Services will be available at all times or without interruption;</li>
+          <li>Transactions will be processed successfully, timely, or without delay;</li>
+          <li>The Platform will be free from errors, bugs, defects, or technical failures;</li>
+          <li>APIs, integrations, or third-party services will remain continuously available;</li>
+          <li>Security systems will prevent all unauthorized access or cyberattacks;</li>
+          <li>Blockchain networks will operate without congestion, delay, or failure;</li>
+          <li>Telecommunications services will remain uninterrupted or error-free;</li>
+          <li>Data transmission will be secure or free from interception;</li>
+          <li>Any defects or issues will be corrected immediately or at all.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>20.3 Technology and System Risks</h3>
+        <p>Users acknowledge that Themegatrader operates in an environment involving complex technological systems, including but not limited to blockchain networks, telecommunications infrastructure, financial systems, APIs, cloud services, and third-party integrations.</p>
+        <p>Users further acknowledge that such systems inherently involve risks including:</p>
+        <ul class="tl">
+          <li>Technical failures;</li>
+          <li>Software bugs or vulnerabilities;</li>
+          <li>Cybersecurity threats;</li>
+          <li>Network disruptions;</li>
+          <li>Third-party service outages;</li>
+          <li>Hardware failures;</li>
+          <li>Internet connectivity issues;</li>
+          <li>Blockchain congestion or instability;</li>
+          <li>Data loss or corruption.</li>
+        </ul>
+        <p>Themegatrader shall not be responsible for outcomes arising from such inherent technological risks.</p>
+      </div>
+
+      <div class="sub">
+        <h3>20.4 Third-Party Services Disclaimer</h3>
+        <p>Themegatrader may rely on or integrate with third-party providers including:</p>
+        <ul class="tl">
+          <li>Payment processors;</li>
+          <li>Banking institutions;</li>
+          <li>Blockchain networks;</li>
+          <li>Telecommunications providers;</li>
+          <li>Cloud infrastructure providers;</li>
+          <li>Analytics and security vendors;</li>
+          <li>API service providers.</li>
+        </ul>
+        <p>Themegatrader makes no warranties or representations regarding the performance, reliability, availability, or security of third-party services and shall not be liable for failures or disruptions caused by such third parties.</p>
+      </div>
+
+      <div class="sub">
+        <h3>20.5 User Assumption of Risk</h3>
+        <p>By using Themegatrader Services, users expressly acknowledge and accept that:</p>
+        <ul class="tl">
+          <li>Digital and financial technologies involve inherent risks;</li>
+          <li>Cryptocurrency markets are volatile and unpredictable;</li>
+          <li>Telecommunications and internet-based services may fail or be interrupted;</li>
+          <li>Security breaches and cyber incidents may occur despite safeguards;</li>
+          <li>Losses may occur due to market conditions, technical failures, or external events.</li>
+        </ul>
+        <p>Users assume full responsibility for evaluating risks before using the Services.</p>
+      </div>
+
+      <div class="sub">
+        <h3>20.6 Limitation Context</h3>
+        <p>Nothing in this Section excludes or limits any warranty or liability that cannot be excluded under applicable law, including mandatory statutory rights where applicable.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         21. FORCE MAJEURE
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s21">
+      <div class="sec-head">
+        <span class="sec-num">21</span>
+        <h2>FORCE MAJEURE</h2>
+      </div>
+
+      <p>Themega Global Limited ("Themegatrader") shall not be held liable or responsible for any delay, interruption, suspension, restriction, failure, or inability to perform, execute, or fulfil any of its obligations under these Terms where such failure arises directly or indirectly from events, circumstances, or causes beyond its reasonable control ("Force Majeure Event").</p>
+      <p>A Force Majeure Event includes any occurrence that could not reasonably have been foreseen, prevented, avoided, or mitigated despite the exercise of reasonable care and due diligence.</p>
+
+      <div class="sub">
+        <h3>21.1 Force Majeure Events</h3>
+        <p>Force Majeure Events may include, but are not limited to:</p>
+
+        <h4>A. Natural and Environmental Events</h4>
+        <ul class="tl">
+          <li>Earthquakes;</li>
+          <li>Floods;</li>
+          <li>Hurricanes or storms;</li>
+          <li>Fire outbreaks;</li>
+          <li>Natural disasters;</li>
+          <li>Extreme weather conditions;</li>
+          <li>Environmental emergencies.</li>
+        </ul>
+
+        <h4>B. Health Emergencies</h4>
+        <ul class="tl">
+          <li>Epidemics;</li>
+          <li>Pandemics;</li>
+          <li>Public health emergencies;</li>
+          <li>Government-imposed health restrictions;</li>
+          <li>Quarantine measures;</li>
+          <li>Medical emergencies affecting infrastructure or workforce availability.</li>
+        </ul>
+
+        <h4>C. Political and Social Events</h4>
+        <ul class="tl">
+          <li>War (declared or undeclared);</li>
+          <li>Terrorism or terrorist threats;</li>
+          <li>Civil unrest or riots;</li>
+          <li>Insurrections or coups;</li>
+          <li>Strikes or labour disputes;</li>
+          <li>Public demonstrations or protests;</li>
+          <li>Government shutdowns or instability.</li>
+        </ul>
+
+        <h4>D. Governmental and Regulatory Actions</h4>
+        <ul class="tl">
+          <li>Government orders or directives;</li>
+          <li>Regulatory interventions or restrictions;</li>
+          <li>Changes in law or enforcement policies;</li>
+          <li>Sanctions or compliance restrictions;</li>
+          <li>Telecommunications or financial service restrictions imposed by authorities;</li>
+          <li>Court orders or judicial interventions;</li>
+          <li>Actions by regulatory bodies affecting operations.</li>
+        </ul>
+
+        <h4>E. Technological and Infrastructure Failures</h4>
+        <ul class="tl">
+          <li>Telecommunications outages or network failures;</li>
+          <li>Internet disruptions or service interruptions;</li>
+          <li>Power outages or energy supply failures;</li>
+          <li>Cloud service disruptions;</li>
+          <li>Hosting provider failures;</li>
+          <li>Data centre outages;</li>
+          <li>Software or system failures;</li>
+          <li>Hardware malfunctions;</li>
+          <li>API or integration failures.</li>
+        </ul>
+
+        <h4>F. Cybersecurity and Digital Risks</h4>
+        <ul class="tl">
+          <li>Cyberattacks;</li>
+          <li>Distributed denial-of-service (DDoS) attacks;</li>
+          <li>Malware, ransomware, or virus outbreaks;</li>
+          <li>Unauthorized access or hacking incidents;</li>
+          <li>Blockchain network congestion or failure;</li>
+          <li>Smart contract failures or vulnerabilities;</li>
+          <li>Digital asset network disruptions;</li>
+          <li>Security breaches affecting third-party providers.</li>
+        </ul>
+
+        <h4>G. Third-Party Failures</h4>
+        <ul class="tl">
+          <li>Banking system failures or delays;</li>
+          <li>Payment processor outages;</li>
+          <li>Liquidity provider disruptions;</li>
+          <li>Blockchain network failures;</li>
+          <li>Telecommunications provider interruptions;</li>
+          <li>Vendor or service provider downtime;</li>
+          <li>Cloud infrastructure disruptions;</li>
+          <li>External API or software failures.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>21.2 Effects of Force Majeure</h3>
+        <p>In the event of a Force Majeure Event, Themegatrader may, without prior notice where reasonably necessary:</p>
+        <ul class="tl">
+          <li>Suspend or restrict access to Services;</li>
+          <li>Delay or halt transactions;</li>
+          <li>Freeze withdrawals or deposits where legally or operationally required;</li>
+          <li>Modify or limit platform functionality;</li>
+          <li>Deactivate or restrict APIs or integrations;</li>
+          <li>Pause telecommunications services or processing;</li>
+          <li>Implement emergency operational procedures;</li>
+          <li>Take any reasonable measures to mitigate risk or loss.</li>
+        </ul>
+        <p>Themegatrader shall make commercially reasonable efforts to resume normal operations as soon as reasonably practicable once the Force Majeure Event has ceased or is mitigated.</p>
+      </div>
+
+      <div class="sub">
+        <h3>21.3 Limitation of Liability</h3>
+        <p>To the fullest extent permitted by applicable law, Themegatrader shall not be liable for any losses, damages, costs, or liabilities arising from or connected to a Force Majeure Event, including but not limited to:</p>
+        <ul class="tl">
+          <li>Financial losses;</li>
+          <li>Transaction delays or failures;</li>
+          <li>Data loss or corruption;</li>
+          <li>Service unavailability;</li>
+          <li>Market disruptions;</li>
+          <li>Cryptocurrency volatility during disruption periods;</li>
+          <li>Telecommunications service interruption.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>21.4 Notice and Mitigation</h3>
+        <p>Where reasonably practicable, Themegatrader may provide notice to users regarding Force Majeure Events affecting Services. However, failure to provide immediate notice shall not constitute a breach of these Terms.</p>
+        <p>Themegatrader will take reasonable steps to mitigate the impact of Force Majeure Events, including implementing contingency plans, alternative systems, backup infrastructure, and recovery procedures where available.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         22. DISPUTE RESOLUTION
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s22">
+      <div class="sec-head">
+        <span class="sec-num">22</span>
+        <h2>DISPUTE RESOLUTION</h2>
+      </div>
+
+      <p>Themega Global Limited ("Themegatrader") is committed to addressing complaints, disputes, disagreements, and user concerns fairly, efficiently, reasonably, and in good faith.</p>
+      <p>By accessing or using Themegatrader Services, users agree to attempt good-faith resolution of disputes directly with Themegatrader before initiating formal legal proceedings, except where immediate legal relief is required or prohibited by applicable law.</p>
+
+      <div class="sub">
+        <h3>22.1 Good-Faith Resolution Process</h3>
+        <p>Users agree to first contact Themegatrader and make commercially reasonable efforts to resolve disputes, complaints, claims, or concerns amicably.</p>
+        <p>Disputes may relate to, without limitation:</p>
+        <ul class="tl">
+          <li>Cryptocurrency transactions;</li>
+          <li>Fiat-to-crypto or crypto-to-fiat transactions;</li>
+          <li>Deposits and withdrawals;</li>
+          <li>Wallet functionality;</li>
+          <li>Marketplace transactions;</li>
+          <li>Telecommunications purchases;</li>
+          <li>Airtime, mobile data, utility, or cable subscriptions;</li>
+          <li>Account access or authentication issues;</li>
+          <li>Fees, charges, pricing, or payment disputes;</li>
+          <li>KYC, AML, sanctions, or compliance-related actions;</li>
+          <li>Suspensions, freezes, restrictions, or account reviews;</li>
+          <li>Delayed, failed, disputed, or reversed transactions;</li>
+          <li>Refund requests or chargeback-related concerns;</li>
+          <li>Service interruptions or outages;</li>
+          <li>API functionality or integrations;</li>
+          <li>Platform performance or technical issues;</li>
+          <li>Privacy or data-related concerns;</li>
+          <li>Security incidents or unauthorized access.</li>
+        </ul>
+        <p>Users are encouraged to provide sufficient information to assist resolution efforts, including:</p>
+        <ul class="tl">
+          <li>Account details;</li>
+          <li>Transaction references;</li>
+          <li>Relevant dates and times;</li>
+          <li>Supporting documents;</li>
+          <li>Screenshots or communications where applicable;</li>
+          <li>Description of the complaint or dispute.</li>
+        </ul>
+        <p>Themegatrader shall make commercially reasonable efforts to investigate, assess, and resolve disputes in a fair, proportionate, timely, operationally reasonable, and compliance-consistent manner.</p>
+        <p>Nothing in this Section obligates Themegatrader to resolve claims contrary to law, compliance obligations, cybersecurity protections, sanctions requirements, fraud prevention measures, regulatory obligations, internal risk controls, or lawful business interests.</p>
+      </div>
+
+      <div class="sub">
+        <h3>22.2 Internal Review and Compliance Investigations</h3>
+        <p>Where disputes involve:</p>
+        <ul class="tl">
+          <li>Suspicious activity;</li>
+          <li>Fraud concerns;</li>
+          <li>Compliance actions;</li>
+          <li>Sanctions screening;</li>
+          <li>Account restrictions;</li>
+          <li>Security incidents;</li>
+          <li>Transaction investigations;</li>
+          <li>Regulatory reporting obligations;</li>
+        </ul>
+        <p>Themegatrader reserves the right to conduct internal reviews, compliance investigations, account monitoring, transaction tracing, forensic reviews, risk assessments, or lawful escalations before resolution.</p>
+        <p>During investigations, Themegatrader may:</p>
+        <ul class="tl">
+          <li>Request additional information;</li>
+          <li>Restrict account functionality;</li>
+          <li>Delay processing;</li>
+          <li>Freeze withdrawals where legally permissible;</li>
+          <li>Preserve evidence, logs, records, and communications;</li>
+          <li>Cooperate with regulators, law enforcement agencies, financial intelligence units, telecommunications authorities, courts, or government agencies.</li>
+        </ul>
+        <p>Users agree to cooperate with lawful requests relating to dispute reviews or investigations.</p>
+      </div>
+
+      <div class="sub">
+        <h3>22.3 Jurisdiction and Escalation of Unresolved Disputes</h3>
+        <p>Where disputes cannot be resolved amicably through good-faith engagement, commercially reasonable internal review efforts, or informal dispute resolution procedures, disputes shall, subject to applicable law, fall within the competent jurisdiction of courts located within the Federal Republic of Nigeria.</p>
+        <p>Users agree that disputes, claims, proceedings, or controversies arising from or relating to:</p>
+        <ul class="tl">
+          <li>Themegatrader Services;</li>
+          <li>Account access or restrictions;</li>
+          <li>Cryptocurrency transactions;</li>
+          <li>Telecommunications services;</li>
+          <li>Fees or payment obligations;</li>
+          <li>Compliance decisions;</li>
+          <li>Security incidents;</li>
+          <li>Platform functionality;</li>
+          <li>Privacy or data protection matters;</li>
+          <li>These Terms and Conditions;</li>
+        </ul>
+        <p>shall be determined by competent Nigerian courts unless otherwise required by mandatory law.</p>
+        <p>Nothing in this Section prevents Themegatrader from:</p>
+        <ul class="tl">
+          <li>Seeking injunctive relief;</li>
+          <li>Obtaining equitable remedies;</li>
+          <li>Pursuing debt recovery;</li>
+          <li>Preserving legal rights;</li>
+          <li>Reporting unlawful or suspicious conduct;</li>
+          <li>Cooperating with courts, regulators, law enforcement agencies, or governmental authorities;</li>
+          <li>Taking protective legal or compliance measures necessary to safeguard users, the Platform, business operations, or legal interests.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>22.4 Continued Rights and Legal Protections</h3>
+        <p>Nothing in this Section shall:</p>
+        <ul class="tl">
+          <li>Prevent users from exercising non-waivable legal rights;</li>
+          <li>Limit rights available under applicable consumer protection laws where mandatory;</li>
+          <li>Restrict lawful reporting to regulators or competent authorities;</li>
+          <li>Prevent Themegatrader from complying with legal obligations or enforcement requests.</li>
+        </ul>
+        <p>To the fullest extent permitted by law, users agree that good-faith dispute resolution efforts shall be attempted prior to commencing formal proceedings where reasonably practicable.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         23. UPDATES TO TERMS AND CONDITIONS
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s23">
+      <div class="sec-head">
+        <span class="sec-num">23</span>
+        <h2>UPDATES TO TERMS AND CONDITIONS</h2>
+      </div>
+
+      <p>Themega Global Limited ("Themegatrader") reserves the right, at its sole discretion and where reasonably necessary, to amend, revise, modify, replace, supplement, or otherwise update these Terms and Conditions from time to time.</p>
+      <p>Such updates may be made in order to ensure continued compliance with applicable laws, improve service delivery, enhance platform functionality, respond to regulatory requirements, or address operational, security, technological, or risk management considerations.</p>
+
+      <div class="sub">
+        <h3>23.1 Reasons for Updates</h3>
+        <p>Themegatrader may update these Terms to reflect, including but not limited to:</p>
+        <ul class="tl">
+          <li>Changes in applicable laws and legal developments;</li>
+          <li>Regulatory requirements and supervisory guidance;</li>
+          <li>Anti-money laundering, counter-terrorism financing, and sanctions obligations;</li>
+          <li>Cybersecurity and data protection requirements;</li>
+          <li>Service enhancements and product expansions;</li>
+          <li>Introduction of new features or functionalities;</li>
+          <li>Removal or modification of existing Services;</li>
+          <li>Technological advancements or infrastructure changes;</li>
+          <li>Operational adjustments or business restructuring;</li>
+          <li>Risk management and fraud prevention measures;</li>
+          <li>Telecommunications or payment system updates;</li>
+          <li>Industry best practices or compliance standards.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>23.2 Publication of Updated Terms</h3>
+        <p>Where Terms are updated, the revised version will be published and made available on:</p>
+        <ul class="tl">
+          <li>www.themegatrader.com</li>
+        </ul>
+        <p>Themegatrader may also maintain archived versions of previous Terms for reference or regulatory purposes where applicable.</p>
+      </div>
+
+      <div class="sub">
+        <h3>23.3 Notification of Changes</h3>
+        <p>Where required under applicable law or where Themegatrader deems appropriate, users may be notified of material changes through one or more of the following methods:</p>
+        <ul class="tl">
+          <li>Email notifications to registered email addresses;</li>
+          <li>In-app or platform notifications;</li>
+          <li>Website announcements or banners;</li>
+          <li>Account dashboard alerts;</li>
+          <li>Requests for renewed consent where legally required.</li>
+        </ul>
+        <p>Themegatrader is not obligated to provide individual notice for all non-material or minor updates unless required by law.</p>
+      </div>
+
+      <div class="sub">
+        <h3>23.4 Acceptance of Updated Terms</h3>
+        <p>By continuing to access or use Themegatrader Services after updated Terms have been published, users acknowledge and agree that they have read, understood, and accepted the revised Terms.</p>
+        <p>Where applicable law requires explicit consent for certain material changes, Themegatrader may require users to provide renewed consent before continued access to Services.</p>
+      </div>
+
+      <div class="sub">
+        <h3>23.5 Effect of Non-Acceptance</h3>
+        <p>If a user does not agree to the updated Terms, the user must immediately discontinue use of Themegatrader Services. Continued use of the Platform following publication of revised Terms constitutes binding acceptance of such changes.</p>
+      </div>
+
+      <div class="sub">
+        <h3>23.6 Final Authority</h3>
+        <p>Themegatrader's interpretation of updated Terms shall be final and binding, subject to applicable law and the jurisdiction of competent courts.</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         24. CONTACT INFORMATION
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="tsec" id="s24">
+      <div class="sec-head">
+        <span class="sec-num">24</span>
+        <h2>CONTACT INFORMATION</h2>
+      </div>
+
+      <p>Themega Global Limited ("Themegatrader") maintains dedicated communication channels to ensure users can raise inquiries, complaints, compliance issues, or other service-related concerns in a timely and structured manner.</p>
+
+      <div class="sub">
+        <h3>24.1 Company Details</h3>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="cc-lbl">Company</div>
+            <div class="cc-val">Themega Global Limited (Themegatrader)</div>
+            <div style="margin-top:10px;"><a href="https://www.themegatrader.com" target="_blank" rel="noopener">www.themegatrader.com</a></div>
+            <div><a href="mailto:info@themegatrader.com">info@themegatrader.com</a></div>
+          </div>
+          <div class="contact-card">
+            <div class="cc-lbl">Compliance and Regulatory Contact</div>
+            <div class="cc-val">AML/KYC, Sanctions &amp; Financial Crime Matters</div>
+            <div style="margin-top:10px;"><a href="mailto:compliance@themegatrader.com">compliance@themegatrader.com</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub">
+        <h3>24.3 Types of Enquiries</h3>
+        <p>Users may contact Themegatrader regarding, but not limited to:</p>
+        <ul class="tl">
+          <li>Complaints and service issues;</li>
+          <li>Compliance and regulatory concerns;</li>
+          <li>Transaction disputes or errors;</li>
+          <li>Account access or restriction issues;</li>
+          <li>Security incidents or suspected fraud;</li>
+          <li>Data protection and privacy concerns;</li>
+          <li>AML/KYC verification matters;</li>
+          <li>Regulatory or legal enquiries;</li>
+          <li>Technical or platform-related issues.</li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <h3>24.4 Response Times</h3>
+        <p>Themegatrader shall make commercially reasonable efforts to acknowledge and respond to user enquiries within reasonable timeframes, taking into account the nature, complexity, and regulatory sensitivity of the request.</p>
+        <p>Where additional investigation is required, response times may be extended, and users may be required to provide further information to facilitate resolution.</p>
+      </div>
+
+      <div class="sub">
+        <h3>24.5 Limitations</h3>
+        <p>Nothing in this Section obligates Themegatrader to respond in a manner that would:</p>
+        <ul class="tl">
+          <li>Breach applicable laws or regulations;</li>
+          <li>Compromise security or ongoing investigations;</li>
+          <li>Violate confidentiality obligations;</li>
+          <li>Interfere with regulatory or law enforcement processes.</li>
+        </ul>
+        <p>All communications shall be handled in accordance with applicable legal, compliance, and operational requirements.</p>
+      </div>
+
+      <hr class="rule" />
+      <p style="text-align:center; font-size:13px; color:var(--text-muted); line-height:1.8;">
+        <strong style="color:var(--text-secondary); display:block; margin-bottom:4px;">END OF TERMS AND CONDITIONS</strong>
+        © Themega Global Limited (Themegatrader). All rights reserved.
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => btt.classList.toggle('show', scrollY > 500));
+  btt.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.sb-nav a').forEach(a => a.classList.remove('active'));
+        const a = document.querySelector(`.sb-nav a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  document.querySelectorAll('.tsec').forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
